@@ -31,7 +31,7 @@ public class PlayerSelect extends ActionBarActivity {
 
     private void createPlayerTable() {
         TableLayout myTable = (TableLayout)findViewById(R.id.playerTableView);
-        Enumeration<Player> myPlayers = MainActivity.playerHashtable.elements();
+        Enumeration<Player> myPlayers = MainActivity.allPlayers.elements();
 
         while(myPlayers.hasMoreElements())
         {

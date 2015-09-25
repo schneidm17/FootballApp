@@ -20,7 +20,7 @@ public class Player {
     private int yCards;
     private int rCards;
 
-    public enum position {FORWARD, MIDFIELDER, DEFENDER, GOALKEEPER};
+    public enum position {FORWARD, MIDFIELDER, DEFENDER, GOALKEEPER}
 
     public Player(String fname, String lname, position pos){
 
@@ -93,7 +93,7 @@ public class Player {
     public int getyCards() {return yCards;}
     public int getrCards() {return rCards;}
 
-    public static String hash(String fname, String lname) {return fname+"_#$_"+lname;}
+    //public static String hash(String fname, String lname) {return fname+"_#$_"+lname;}
     public String hash() {return firstName+"_#$_"+lastName;}
 
 }

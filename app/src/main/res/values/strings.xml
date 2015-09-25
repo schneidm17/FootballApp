@@ -13,6 +13,8 @@
     <string name="rCardsString">Red Cards:</string>
     <string name="unknown">--</string>
 
-    <string name="title_activity_player_stats">PlayerStats</string>
-    <string name="title_activity_player_select">PlayerSelect</string>
+    <string name="title_activity_player_stats">Player Stats</string>
+    <string name="title_activity_player_select">Select a Player</string>
+    <string name="title_activity_team_stats">Team Stats</string>
+    <string name="title_activity_team_select">Select a Team</string>
 </resources>

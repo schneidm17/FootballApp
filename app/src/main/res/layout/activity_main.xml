@@ -13,7 +13,8 @@
         <LinearLayout
             android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:layout_gravity="center_horizontal">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -23,7 +24,7 @@
                 android:id="@+id/textView"
                 android:textColor="#ffffffff"
                 android:textSize="100dp"
-                android:layout_gravity="bottom|center_horizontal"
+                android:layout_gravity="bottom"
                 android:textStyle="bold" />
 
             <TextView
@@ -34,7 +35,7 @@
                 android:id="@+id/textView3"
                 android:textColor="#ffffffff"
                 android:textSize="60dp"
-                android:layout_gravity="bottom|center_horizontal"
+                android:layout_gravity="bottom"
                 android:textStyle="bold" />
 
             <TextView
@@ -45,7 +46,7 @@
                 android:id="@+id/textView4"
                 android:textColor="#ffffffff"
                 android:textSize="100dp"
-                android:layout_gravity="bottom|center_horizontal"
+                android:layout_gravity="bottom"
                 android:textStyle="bold" />
 
         </LinearLayout>
@@ -58,9 +59,23 @@
             android:id="@+id/textView2"
             android:layout_gravity="center_horizontal"
             android:textSize="60dp"
-            android:paddingBottom="20dp"
             android:textColor="#ffffffff"
             android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="By Matthew Schneider"
+            android:id="@+id/textView5"
+            android:textSize="30dp"
+            android:textColor="#ffffffff"
+            android:textStyle="italic"
+            android:layout_gravity="center_horizontal" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="50px" />
 
         <TableLayout
             android:layout_width="wrap_content"
@@ -71,7 +86,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="View Players"
-                android:id="@+id/button"
+                android:id="@+id/gotoPlayerView"
                 android:textSize="40dp"
                 android:padding="15dp" />
 
@@ -79,7 +94,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="View Teams"
-                android:id="@+id/button2"
+                android:id="@+id/gotoTeamView"
                 android:textSize="40dp"
                 android:padding="15dp" />
 
