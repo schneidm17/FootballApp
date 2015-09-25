@@ -12,4 +12,7 @@
     <string name="yCardsString">Yellow Cards:</string>
     <string name="rCardsString">Red Cards:</string>
     <string name="unknown">--</string>
+    <string name="title_activity_player_stats">player_stats</string>
+
+    <string name="hello_world">Hello world!</string>
 </resources>

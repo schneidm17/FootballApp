@@ -20,12 +20,12 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/selectPlayerTable" >
+        android:id="@+id/PlayerTableScrollView" >
 
         <TableLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:id="@+id/playerTable">
+            android:id="@+id/playerTableView">
 
         </TableLayout>
     </ScrollView>

@@ -1,9 +1,11 @@
-<?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     android:background="#ff008000"
-    android:padding="20dp">
+    android:padding="20dp"
+    tools:context="edu.up.cs301.schneidm17.football.player_stats">
 
     <LinearLayout
         android:orientation="horizontal"

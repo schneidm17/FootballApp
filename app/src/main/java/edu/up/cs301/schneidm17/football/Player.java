@@ -23,6 +23,8 @@ public class Player {
     public enum position {FORWARD, MIDFIELDER, DEFENDER, GOALKEEPER};
 
     public Player(String fname, String lname, position pos){
+
+
         this.firstName = (fname==null) ? "[FirstName]" : fname;
         this.lastName = (lname==null) ? "[LastName]" : lname;
         this.playerPosition = pos;
