@@ -37,7 +37,11 @@ public class PlayerStats extends ActionBarActivity {
         playerPosition.setText(myPlayer.getPosition());
         playerTeamName.setText(myPlayer.getTeamName());
         playerTeamNumber.setText(myPlayer.getTeamNumber());
-        playerAge.setText(""+myPlayer.getAge());
+        if(myPlayer.getAge()>0) {
+            playerAge.setText("" + myPlayer.getAge());
+        } else {
+            playerAge.setText("Unknown");
+        }
         playerGoals.setText(""+myPlayer.getGoals());
         playerAssists.setText(""+myPlayer.getAssists());
         playerShots.setText(""+myPlayer.getShots());

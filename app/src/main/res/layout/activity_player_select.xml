@@ -26,7 +26,8 @@
         android:layout_gravity="center_horizontal"
         android:textColor="#ffffffff"
         android:textSize="20dp"
-        android:paddingBottom="10dp" />
+        android:paddingBottom="10dp"
+        android:textStyle="italic" />
 
     <ScrollView
         android:layout_width="wrap_content"
