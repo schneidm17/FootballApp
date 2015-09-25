@@ -5,7 +5,7 @@
     android:orientation="vertical"
     android:background="#ff008000"
     android:padding="20dp"
-    tools:context="edu.up.cs301.schneidm17.football.player_stats">
+    tools:context="edu.up.cs301.schneidm17.football.PlayerStats">
 
     <LinearLayout
         android:orientation="horizontal"
@@ -19,7 +19,7 @@
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="FirstName"
-            android:id="@+id/firstName"
+            android:id="@+id/playerFirstName"
             android:textColor="#ffffffff"
             android:textSize="60dp"
             android:paddingRight="10dp" />
@@ -29,7 +29,7 @@
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="LastName"
-            android:id="@+id/lastName"
+            android:id="@+id/playerLastName"
             android:textColor="#ffffffff"
             android:textSize="60dp"
             android:paddingLeft="10dp" />
@@ -46,7 +46,7 @@
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="#00"
-            android:id="@+id/teamNumber"
+            android:id="@+id/playerTeamNumber"
             android:textColor="#ffffffff"
             android:textSize="40dp"
             android:paddingRight="15dp" />
@@ -56,7 +56,7 @@
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="TeamName"
-            android:id="@+id/teamName"
+            android:id="@+id/playerTeamName"
             android:textColor="#ffffffff"
             android:textSize="40dp"
             android:paddingLeft="15dp" />
