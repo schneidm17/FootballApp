@@ -1,17 +1,12 @@
 package edu.up.cs301.schneidm17.football;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.TableLayout;
-import android.widget.TableRow;
-import android.widget.TextView;
-
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Enumeration;
 import java.util.Hashtable;
 
 
@@ -19,6 +14,7 @@ public class MainActivity extends ActionBarActivity {
 
     public static Hashtable<String, Player> allPlayers;
     public static Hashtable<String, Team> allTeams;
+    Bitmap defaultPhoto;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,10 +37,9 @@ public class MainActivity extends ActionBarActivity {
         gotoTeamViewButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this, PlayerSelect.class));
+                startActivity(new Intent(MainActivity.this, TeamSelect.class));
             }
         });
-
     }
 
     private void addDefaultPlayers() {
@@ -95,6 +90,7 @@ public class MainActivity extends ActionBarActivity {
     }
 
     private void addToHashtable(Player myPlayer) {
+        myPlayer.setPlayerPhoto(null);
         allPlayers.put(myPlayer.hash(), myPlayer);
         if(allTeams.contains(myPlayer.getTeamName())){
             allTeams.get(myPlayer.getTeamName()).addPlayer(myPlayer);

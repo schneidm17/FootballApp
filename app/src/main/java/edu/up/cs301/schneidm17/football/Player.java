@@ -1,5 +1,7 @@
 package edu.up.cs301.schneidm17.football;
 
+import android.graphics.Bitmap;
+
 import java.util.HashMap;
 
 /**
@@ -19,6 +21,7 @@ public class Player {
     private int fouls;
     private int yCards;
     private int rCards;
+    private Bitmap playerPhoto;
 
     public enum position {FORWARD, MIDFIELDER, DEFENDER, GOALKEEPER}
 
@@ -38,6 +41,7 @@ public class Player {
         this.fouls=0;
         this.yCards=0;
         this.rCards=0;
+        this.playerPhoto=null;
     }
 
     public Player(String fname, String lname, String teamName, int teamNumber, position pos, int age,
@@ -68,6 +72,7 @@ public class Player {
     public boolean setFouls(int n) {if(n<0) return false; fouls=n; return true;}
     public boolean setYCards(int n) {if(n<0) return false; yCards=n; return true;}
     public boolean setRCards(int n) {if(n<0) return false; rCards=n; return true;}
+    public boolean setPlayerPhoto(Bitmap b) {if(b==null) return false; playerPhoto=b; return true;}
 
     /*
      * Get methods @returns the value called
@@ -92,6 +97,7 @@ public class Player {
     public int getFouls() {return fouls;}
     public int getyCards() {return yCards;}
     public int getrCards() {return rCards;}
+    public Bitmap getPlayerPhoto() {return playerPhoto;}
 
     //public static String hash(String fname, String lname) {return fname+"_#$_"+lname;}
     public String hash() {return firstName+"_#$_"+lastName;}

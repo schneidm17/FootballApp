@@ -1,5 +1,7 @@
 package edu.up.cs301.schneidm17.football;
 
+import android.graphics.Bitmap;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -9,6 +11,7 @@ import java.util.HashMap;
 public class Team {
     private String teamName;
     private HashMap<String, Player> TeamPlayers;
+    private Bitmap teamPhoto;
 
     public Team(String name){
         TeamPlayers = new HashMap<>();
@@ -19,11 +22,9 @@ public class Team {
         this(name);
         for(Player player : newPlayers){
             TeamPlayers.put(player.hash(), player);
+
         }
     }
-
-
-
 
     public boolean addPlayer(Player newPlayer){
         return (TeamPlayers.put(newPlayer.hash(), newPlayer)!=null);
