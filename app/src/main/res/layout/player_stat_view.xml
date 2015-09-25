@@ -5,30 +5,63 @@
     android:background="#ff008000"
     android:padding="20dp">
 
-    <TextView
+    <LinearLayout
+        android:orientation="horizontal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Player Name"
-        android:id="@+id/playerName"
-        android:textColor="#ffffffff"
-        android:textSize="60dp"
-        android:padding="2dp"
-        android:layout_gravity="center_horizontal" />
+        android:id="@+id/NameLayout"
+        android:layout_gravity="center_horizontal">
 
-    <TextView
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="FirstName"
+            android:id="@+id/firstName"
+            android:textColor="#ffffffff"
+            android:textSize="60dp"
+            android:paddingRight="10dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="LastName"
+            android:id="@+id/lastName"
+            android:textColor="#ffffffff"
+            android:textSize="60dp"
+            android:paddingLeft="10dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="#5, Team One FC"
-        android:id="@+id/teamInfo"
-        android:textColor="#ffffffff"
-        android:textSize="40dp"
-        android:layout_gravity="center_horizontal"
-        android:padding="2dp" />
+        android:layout_gravity="center_horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="#00"
+            android:id="@+id/teamNumber"
+            android:textColor="#ffffffff"
+            android:textSize="40dp"
+            android:paddingRight="15dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="TeamName"
+            android:id="@+id/teamName"
+            android:textColor="#ffffffff"
+            android:textSize="40dp"
+            android:paddingLeft="15dp" />
+    </LinearLayout>
 
     <Space
-        android:layout_width="fill_parent"
+        android:layout_width="match_parent"
         android:layout_height="20dp" />
 
     <LinearLayout
@@ -46,7 +79,7 @@
 
             <ImageView
                 android:layout_width="wrap_content"
-                android:layout_height="fill_parent"
+                android:layout_height="match_parent"
                 android:id="@+id/playerPhoto"
                 android:layout_gravity="center_horizontal|right"
                 android:background="#40ffffff"
@@ -87,7 +120,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textAppearance="?android:attr/textAppearanceMedium"
-                        android:text="25"
+                        android:text="@string/unknown"
                         android:id="@+id/playerAge"
                         android:textColor="#ffffffff"
                         android:paddingLeft="5dp"
@@ -119,7 +152,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textAppearance="?android:attr/textAppearanceMedium"
-                        android:text="Forward"
+                        android:text="@string/unknown"
                         android:id="@+id/playerPosition"
                         android:textColor="#ffffffff"
                         android:paddingLeft="5dp"
@@ -150,7 +183,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textAppearance="?android:attr/textAppearanceMedium"
-                        android:text="6"
+                        android:text="@string/unknown"
                         android:id="@+id/playerGoals"
                         android:textColor="#ffffffff"
                         android:paddingLeft="5dp"
@@ -182,7 +215,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textAppearance="?android:attr/textAppearanceMedium"
-                        android:text="8"
+                        android:text="@string/unknown"
                         android:id="@+id/playerAssists"
                         android:textColor="#ffffffff"
                         android:paddingLeft="5dp"
@@ -214,7 +247,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textAppearance="?android:attr/textAppearanceMedium"
-                        android:text="15"
+                        android:text="@string/unknown"
                         android:id="@+id/playerShots"
                         android:textColor="#ffffffff"
                         android:paddingLeft="5dp"
@@ -245,7 +278,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textAppearance="?android:attr/textAppearanceMedium"
-                        android:text="0"
+                        android:text="@string/unknown"
                         android:id="@+id/playerSaves"
                         android:textColor="#ffffffff"
                         android:paddingLeft="5dp"
@@ -276,7 +309,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textAppearance="?android:attr/textAppearanceMedium"
-                        android:text="2"
+                        android:text="@string/unknown"
                         android:id="@+id/playerFouls"
                         android:textColor="#ffffffff"
                         android:paddingLeft="5dp"
@@ -307,7 +340,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textAppearance="?android:attr/textAppearanceMedium"
-                        android:text="1"
+                        android:text="@string/unknown"
                         android:id="@+id/playerYCards"
                         android:textColor="#ffffffff"
                         android:paddingLeft="5dp"
@@ -338,7 +371,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textAppearance="?android:attr/textAppearanceMedium"
-                        android:text="0"
+                        android:text="@string/unknown"
                         android:id="@+id/playerRCards"
                         android:textColor="#ffffffff"
                         android:paddingLeft="5dp"

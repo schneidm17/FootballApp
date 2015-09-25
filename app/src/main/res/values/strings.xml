@@ -11,4 +11,5 @@
     <string name="foulsString">Fouls:</string>
     <string name="yCardsString">Yellow Cards:</string>
     <string name="rCardsString">Red Cards:</string>
+    <string name="unknown">--</string>
 </resources>

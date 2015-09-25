@@ -2,37 +2,72 @@ package edu.up.cs301.schneidm17.football;
 
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
+import java.util.HashMap;
 
 
 public class MainActivity extends ActionBarActivity {
+
+    private HashMap<String, Player> playerTable;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.player_stat_view);
+
+        playerTable = new HashMap<>();
+        addDefaultPlayers();
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
-        return true;
+    private void addDefaultPlayers() {
+        addToHashMap(playerTable,new Player("Mathew","Rosemond","TeamOne FC",1,Player.position.FORWARD,20,10,7,30,0,2,1,0));
+        addToHashMap(playerTable,new Player("Dominic","Piesse","TeamTwo FC",1,Player.position.FORWARD,28,9,3,19,0,1,0,0));
+        addToHashMap(playerTable,new Player("Adam","Parsons","TeamThree FC",1,Player.position.FORWARD,27,12,5,18,0,1,0,0));
+        addToHashMap(playerTable,new Player("Zak","Martin","TeamFour FC",1,Player.position.FORWARD,27,8,3,28,0,4,1,0));
+        addToHashMap(playerTable,new Player("George","Byrne","TeamOne FC",2,Player.position.FORWARD,26,9,8,18,0,2,1,0));
+        addToHashMap(playerTable,new Player("Lucas","Webster","TeamTwo FC",2,Player.position.FORWARD,22,14,9,31,0,6,2,0));
+        addToHashMap(playerTable,new Player("Toby","Mackay","TeamThree FC",2,Player.position.FORWARD,21,12,7,20,0,3,0,0));
+        addToHashMap(playerTable,new Player("Mackenzie","Akhtar","TeamFour FC",2,Player.position.FORWARD,18,5,9,12,0,1,0,0));
+        addToHashMap(playerTable,new Player("Joe","Parkes","TeamOne FC",3,Player.position.FORWARD,23,4,8,16,0,2,0,1));
+        addToHashMap(playerTable,new Player("Charlie","Hayward","TeamTwo FC",3,Player.position.FORWARD,28,6,7,20,0,4,1,0));
+        addToHashMap(playerTable,new Player("Brogan","Martin","TeamThree FC",3,Player.position.FORWARD,23,3,6,14,0,1,0,0));
+        addToHashMap(playerTable,new Player("Jeremy","Hartog","TeamFour FC",3,Player.position.FORWARD,19,2,4,10,0,3,0,0));
+        addToHashMap(playerTable,new Player("Anthony","Leathers","TeamOne FC",4,Player.position.FORWARD,28,0,6,9,0,1,0,0));
+        addToHashMap(playerTable,new Player("Glenn","Wallace","TeamTwo FC",4,Player.position.FORWARD,19,1,4,13,0,2,0,0));
+        addToHashMap(playerTable,new Player("Charles","Carter","TeamThree FC",4,Player.position.FORWARD,21,1,3,8,0,2,2,0));
+        addToHashMap(playerTable,new Player("Elliot","Barr","TeamFour FC",4,Player.position.FORWARD,28,0,2,8,0,1,0,0));
+        addToHashMap(playerTable,new Player("Jack","Clark","TeamOne FC",5,Player.position.MIDFIELDER,23,0,4,9,0,1,0,0));
+        addToHashMap(playerTable,new Player("Daniel","Bentley","TeamTwo FC",5,Player.position.MIDFIELDER,24,1,7,6,1,0,0,0));
+        addToHashMap(playerTable,new Player("Jenson","Taylor","TeamThree FC",5,Player.position.MIDFIELDER,19,2,8,4,0,2,1,0));
+        addToHashMap(playerTable,new Player("Leo","Wall","TeamFour FC",5,Player.position.MIDFIELDER,27,1,6,7,1,0,0,0));
+        addToHashMap(playerTable,new Player("Dawid","Hughes","TeamOne FC",6,Player.position.MIDFIELDER,22,0,2,8,1,3,1,0));
+        addToHashMap(playerTable,new Player("Xavier","Davey","TeamTwo FC",6,Player.position.MIDFIELDER,20,1,5,4,0,0,0,0));
+        addToHashMap(playerTable,new Player("Christopher","Carter","TeamThree FC",6,Player.position.MIDFIELDER,27,0,7,2,1,1,0,0));
+        addToHashMap(playerTable,new Player("Lochlan","Clark","TeamFour FC",6,Player.position.MIDFIELDER,21,1,2,2,2,0,0,0));
+        addToHashMap(playerTable,new Player("Mason","Holden","TeamOne FC",7,Player.position.DEFENDER,25,0,1,1,2,1,0,0));
+        addToHashMap(playerTable,new Player("David","Atkins","TeamTwo FC",7,Player.position.DEFENDER,20,0,0,1,3,1,0,0));
+        addToHashMap(playerTable,new Player("Liam","Howarth","TeamThree FC",7,Player.position.DEFENDER,26,0,0,0,2,3,1,0));
+        addToHashMap(playerTable,new Player("Spencer","Palmer","TeamFour FC",7,Player.position.DEFENDER,18,0,1,1,4,0,0,0));
+        addToHashMap(playerTable,new Player("Declan","Bryant","TeamOne FC",8,Player.position.DEFENDER,22,0,0,0,6,2,1,0));
+        addToHashMap(playerTable,new Player("Joshua","Yelverton","TeamTwo FC",8,Player.position.DEFENDER,28,0,1,0,4,0,0,0));
+        addToHashMap(playerTable,new Player("Quinn","Ferguson","TeamThree FC",8,Player.position.DEFENDER,19,0,0,0,3,0,0,0));
+        addToHashMap(playerTable,new Player("Riley","Moore","TeamFour FC",8,Player.position.DEFENDER,26,0,0,0,12,4,3,1));
+        addToHashMap(playerTable,new Player("Jamie","Brady","TeamOne FC",9,Player.position.DEFENDER,23,0,1,0,4,0,0,0));
+        addToHashMap(playerTable,new Player("Timothy","Billington","TeamTwo FC",9,Player.position.DEFENDER,25,0,0,0,10,1,0,0));
+        addToHashMap(playerTable,new Player("Kian","Bartlett","TeamThree FC",9,Player.position.DEFENDER,28,0,0,0,7,3,1,1));
+        addToHashMap(playerTable,new Player("Wiktor","McMillan","TeamFour FC",9,Player.position.DEFENDER,19,0,0,0,9,1,0,0));
+        addToHashMap(playerTable,new Player("James","Barnes","TeamOne FC",10,Player.position.DEFENDER,22,0,0,0,11,2,1,0));
+        addToHashMap(playerTable,new Player("Armaan","McLean","TeamTwo FC",10,Player.position.DEFENDER,18,0,0,0,10,0,0,0));
+        addToHashMap(playerTable,new Player("Alexander","Webster","TeamThree FC",10,Player.position.DEFENDER,20,0,0,0,15,1,0,0));
+        addToHashMap(playerTable,new Player("Max","Chamberlain","TeamFour FC",10,Player.position.DEFENDER,25,0,0,0,12,0,0,0));
+        addToHashMap(playerTable,new Player("William","O'Malley","TeamOne FC",0,Player.position.GOALKEEPER,25,0,0,0,37,0,0,0));
+        addToHashMap(playerTable,new Player("Corey","Short","TeamTwo FC",0,Player.position.GOALKEEPER,27,0,0,0,42,0,1,0));
+        addToHashMap(playerTable,new Player("Bailey","Stephenson","TeamThree FC",0,Player.position.GOALKEEPER,24,0,0,0,31,0,0,0));
+        addToHashMap(playerTable,new Player("Owen","MacDonald","TeamFour FC",0,Player.position.GOALKEEPER,23,0,0,0,26,0,0,0));
     }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
+    public void addToHashMap(HashMap<String, Player> myHash, Player myPlayer)
+    {
+        myHash.put(myPlayer.hash(), myPlayer);
     }
+
 }
