@@ -17,10 +17,22 @@
         android:textSize="60dp"
         android:layout_gravity="center_horizontal" />
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Click on a player to view their stats"
+        android:id="@+id/SelectPlayerSubtitle"
+        android:layout_gravity="center_horizontal"
+        android:textColor="#ffffffff"
+        android:textSize="20dp"
+        android:paddingBottom="10dp" />
+
     <ScrollView
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        android:id="@+id/PlayerTableScrollView" >
+        android:id="@+id/PlayerTableScrollView"
+        android:layout_gravity="center_horizontal">
 
         <TableLayout
             android:layout_width="match_parent"

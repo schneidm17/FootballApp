@@ -1,15 +1,96 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="#ff008000">
 
-    <Button
+    <LinearLayout
+        android:orientation="vertical"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Start"
-        android:id="@+id/startButton"
-        android:layout_gravity="center_horizontal"
-        android:textSize="100dp"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerInParent="true">
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="Welc"
+                android:id="@+id/textView"
+                android:textColor="#ffffffff"
+                android:textSize="100dp"
+                android:layout_gravity="bottom|center_horizontal"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="⚽"
+                android:id="@+id/textView3"
+                android:textColor="#ffffffff"
+                android:textSize="60dp"
+                android:layout_gravity="bottom|center_horizontal"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="me"
+                android:id="@+id/textView4"
+                android:textColor="#ffffffff"
+                android:textSize="100dp"
+                android:layout_gravity="bottom|center_horizontal"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Fantasy F⚽⚽tball"
+            android:id="@+id/textView2"
+            android:layout_gravity="center_horizontal"
+            android:textSize="60dp"
+            android:paddingBottom="20dp"
+            android:textColor="#ffffffff"
+            android:textStyle="bold" />
+
+        <TableLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal">
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="View Players"
+                android:id="@+id/button"
+                android:textSize="40dp"
+                android:padding="15dp" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="View Teams"
+                android:id="@+id/button2"
+                android:textSize="40dp"
+                android:padding="15dp" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Create Your\nOwn Teams"
+                android:id="@+id/button3"
+                android:textSize="40dp"
+                android:padding="15dp" />
+        </TableLayout>
+    </LinearLayout>
+
 </RelativeLayout>

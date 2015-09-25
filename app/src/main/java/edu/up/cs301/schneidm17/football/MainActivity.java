@@ -27,7 +27,7 @@ public class MainActivity extends ActionBarActivity {
         playerHashtable = new Hashtable<>();
         addDefaultPlayers();
 
-        TextView foo = (TextView)findViewById(R.id.startButton);
+        TextView foo = (TextView)findViewById(R.id.button);
         foo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -41,7 +41,6 @@ public class MainActivity extends ActionBarActivity {
         addToHashtable(playerHashtable, new Player("Dominic", "Piesse", "TeamTwo FC", 1, Player.position.FORWARD, 28, 9, 3, 19, 0, 1, 0, 0));
         addToHashtable(playerHashtable, new Player("Adam", "Parsons", "TeamThree FC", 1, Player.position.FORWARD, 27, 12, 5, 18, 0, 1, 0, 0));
         addToHashtable(playerHashtable, new Player("Zak", "Martin", "TeamFour FC", 1, Player.position.FORWARD, 27, 8, 3, 28, 0, 4, 1, 0));
-        /*
         addToHashtable(playerHashtable, new Player("George", "Byrne", "TeamOne FC", 2, Player.position.FORWARD, 26, 9, 8, 18, 0, 2, 1, 0));
         addToHashtable(playerHashtable, new Player("Lucas", "Webster", "TeamTwo FC", 2, Player.position.FORWARD, 22, 14, 9, 31, 0, 6, 2, 0));
         addToHashtable(playerHashtable, new Player("Toby", "Mackay", "TeamThree FC", 2, Player.position.FORWARD, 21, 12, 7, 20, 0, 3, 0, 0));
@@ -82,7 +81,6 @@ public class MainActivity extends ActionBarActivity {
         addToHashtable(playerHashtable, new Player("Corey", "Short", "TeamTwo FC", 0, Player.position.GOALKEEPER, 27, 0, 0, 0, 42, 0, 1, 0));
         addToHashtable(playerHashtable, new Player("Bailey", "Stephenson", "TeamThree FC", 0, Player.position.GOALKEEPER, 24, 0, 0, 0, 31, 0, 0, 0));
         addToHashtable(playerHashtable, new Player("Owen", "MacDonald", "TeamFour FC", 0, Player.position.GOALKEEPER, 23, 0, 0, 0, 26, 0, 0, 0));
-        */
     }
 
     private void addToHashtable(Hashtable<String, Player> myHash, Player myPlayer) {
