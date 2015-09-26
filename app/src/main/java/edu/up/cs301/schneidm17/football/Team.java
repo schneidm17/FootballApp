@@ -4,17 +4,18 @@ import android.graphics.Bitmap;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Hashtable;
 
 /**
  * Created by schneidm17 on 9/25/2015.
  */
 public class Team {
     private String teamName;
-    private HashMap<String, Player> TeamPlayers;
+    private Hashtable<String, Player> TeamPlayers;
     private Bitmap teamPhoto;
 
     public Team(String name){
-        TeamPlayers = new HashMap<>();
+        TeamPlayers = new Hashtable<>();
         teamName = (name==null) ? "TeamName" : name;
     }
 
@@ -35,16 +36,8 @@ public class Team {
         }
     }
 
-    public boolean addPlayer(Player newPlayer){
-        return (TeamPlayers.put(newPlayer.hash(), newPlayer)!=null);
-    }
-
-    public String getTeamName(){
-        return teamName;
-    }
-
-    public Bitmap getTeamPhoto() {
-        return teamPhoto;
-    }
-
+    public boolean addPlayer(Player newPlayer){return (TeamPlayers.put(newPlayer.hash(), newPlayer)!=null);}
+    public String getTeamName() {return teamName;}
+    public Bitmap getTeamPhoto() {return teamPhoto;}
+    public Hashtable<String, Player> getTeamPlayers() {return TeamPlayers;}
 }

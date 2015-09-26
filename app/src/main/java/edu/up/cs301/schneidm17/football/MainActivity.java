@@ -23,6 +23,7 @@ public class MainActivity extends ActionBarActivity {
 
         allPlayers = new Hashtable<>();
         allTeams = new Hashtable<>();
+        defaultPhoto = BitmapFactory.decodeResource(getResources(), R.drawable.player_default);
         addDefaultPlayers();
 
         Button gotoPlayerViewButton = (Button)findViewById(R.id.gotoPlayerView);
@@ -101,9 +102,9 @@ public class MainActivity extends ActionBarActivity {
     }
 
     private void addToHashtable(Player myPlayer) {
-        myPlayer.setPlayerPhoto(null);
+        myPlayer.setPlayerPhoto(defaultPhoto);
         allPlayers.put(myPlayer.hash(), myPlayer);
-        if(allTeams.contains(myPlayer.getTeamName())){
+        if(allTeams.containsKey(myPlayer.getTeamName())) {
             allTeams.get(myPlayer.getTeamName()).addPlayer(myPlayer);
         } else {
             allTeams.put(myPlayer.getTeamName(),new Team(myPlayer.getTeamName()));

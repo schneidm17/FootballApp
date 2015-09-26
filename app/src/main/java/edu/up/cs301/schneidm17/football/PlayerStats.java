@@ -4,6 +4,7 @@ import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 
@@ -18,6 +19,10 @@ public class PlayerStats extends ActionBarActivity {
     }
 
     private void importPlayerStats(Player myPlayer) {
+        if(myPlayer==null) {
+            return;
+        }
+
         TextView playerFirstName = (TextView) findViewById(R.id.playerFirstName);
         TextView playerLastName = (TextView) findViewById(R.id.playerLastName);
         TextView playerPosition = (TextView) findViewById(R.id.playerPosition);
@@ -31,6 +36,7 @@ public class PlayerStats extends ActionBarActivity {
         TextView playerFouls = (TextView) findViewById(R.id.playerFouls);
         TextView playerYCards = (TextView) findViewById(R.id.playerYCards);
         TextView playerRCards = (TextView) findViewById(R.id.playerRCards);
+        ImageView playerPhoto = (ImageView) findViewById(R.id.playerPhoto);
 
         playerFirstName.setText(myPlayer.getFirstName());
         playerLastName.setText(myPlayer.getLastName());
@@ -49,6 +55,7 @@ public class PlayerStats extends ActionBarActivity {
         playerFouls.setText(""+myPlayer.getFouls());
         playerYCards.setText(""+myPlayer.getyCards());
         playerRCards.setText(""+myPlayer.getrCards());
+        playerPhoto.setImageBitmap(myPlayer.getPlayerPhoto());
     }
 
 
