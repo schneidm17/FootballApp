@@ -26,12 +26,25 @@ public class Team {
         }
     }
 
+    public boolean setTeamPhoto(Bitmap b) {
+        if (b == null) {
+            return false;
+        } else {
+            teamPhoto = b;
+            return true;
+        }
+    }
+
     public boolean addPlayer(Player newPlayer){
         return (TeamPlayers.put(newPlayer.hash(), newPlayer)!=null);
     }
 
     public String getTeamName(){
         return teamName;
+    }
+
+    public Bitmap getTeamPhoto() {
+        return teamPhoto;
     }
 
 }

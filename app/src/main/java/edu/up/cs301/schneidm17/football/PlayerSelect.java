@@ -35,8 +35,7 @@ public class PlayerSelect extends ActionBarActivity {
 
         while(myPlayers.hasMoreElements())
         {
-            Player currentPlayer=myPlayers.nextElement();
-            final Player FINAL_PLAYER = currentPlayer;
+            final Player currentPlayer=myPlayers.nextElement();
             String bufferString = "          ";
 
             TableRow myRow = new TableRow(this);
@@ -44,27 +43,26 @@ public class PlayerSelect extends ActionBarActivity {
             myRow.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    gotoPlayerStats(FINAL_PLAYER);
+                    gotoPlayerStats(currentPlayer);
                 }
             });
             TextView playerName = new TextView(this);
-            playerName.setText(FINAL_PLAYER.getFirstName() + " " + FINAL_PLAYER.getLastName() + bufferString);
+            playerName.setText(currentPlayer.getFirstName() + " " + currentPlayer.getLastName() + bufferString);
             playerName.setTextColor(Color.WHITE);
             playerName.setTextSize(20);
             myRow.addView(playerName);
 
             TextView playerPosition = new TextView(this);
-            playerPosition.setText(FINAL_PLAYER.getPosition() + bufferString);
+            playerPosition.setText(currentPlayer.getPosition() + bufferString);
             playerPosition.setTextColor(Color.WHITE);
             playerPosition.setTextSize(15);
             myRow.addView(playerPosition);
 
             TextView playerTeamInfo = new TextView(this);
-            playerTeamInfo.setText(FINAL_PLAYER.getTeamNumber() + ", " + FINAL_PLAYER.getTeamName());
+            playerTeamInfo.setText(currentPlayer.getTeamNumber() + ", " + currentPlayer.getTeamName());
             playerTeamInfo.setTextColor(Color.WHITE);
             playerTeamInfo.setTextSize(15);
             myRow.addView(playerTeamInfo);
-
         }
     }
 
