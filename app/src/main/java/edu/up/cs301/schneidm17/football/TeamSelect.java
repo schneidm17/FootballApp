@@ -70,4 +70,8 @@ public class TeamSelect extends ActionBarActivity {
         teamSelected = myTeam;
         startActivity(new Intent(TeamSelect.this, TeamStats.class));
     }
+
+    public void createNewTeam(View view){
+        startActivity(new Intent(TeamSelect.this, TeamEdit.class));
+    }
 }

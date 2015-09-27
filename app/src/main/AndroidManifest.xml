@@ -32,6 +32,14 @@
             android:name=".TeamSelect"
             android:label="@string/title_activity_team_select" >
         </activity>
+        <activity
+            android:name=".TeamEdit"
+            android:label="@string/title_activity_team_edit" >
+        </activity>
+        <activity
+            android:name=".PlayerEdit"
+            android:label="@string/title_activity_player_edit" >
+        </activity>
     </application>
 
 </manifest>

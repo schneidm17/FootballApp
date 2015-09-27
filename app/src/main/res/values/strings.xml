@@ -11,10 +11,24 @@
     <string name="foulsString">Fouls:</string>
     <string name="yCardsString">Yellow Cards:</string>
     <string name="rCardsString">Red Cards:</string>
+
+    <string name="teamNameString">TeamName</string>
+    <string name="teamMottoString">TeamMotto</string>
+    <string name="numPlayersString">Number of Players:</string>
+    <string name="teamRecordString">Season Record:</string>
+    <string name="teamGoalsString">Season Goals:</string>
+    <string name="teamShotsString">Season Shots:</string>
+    <string name="teamSavesString">Season Saves:</string>
+    <string name="teamFoulsString">Team Fouls:</string>
+    <string name="teamYCardsString">Team Yellow Cards:</string>
+    <string name="teamRCardsString">Team Red Cards:</string>
+
     <string name="unknown">--</string>
 
     <string name="title_activity_player_stats">View Player Stats</string>
     <string name="title_activity_player_select">View All Players</string>
+    <string name="title_activity_player_edit">Edit Player Stats</string>
     <string name="title_activity_team_stats">View Team Stats</string>
     <string name="title_activity_team_select">View All Teams</string>
+    <string name="title_activity_team_edit">Edit Team Stats</string>
 </resources>
