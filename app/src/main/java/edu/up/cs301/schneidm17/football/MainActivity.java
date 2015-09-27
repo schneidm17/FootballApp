@@ -45,19 +45,19 @@ public class MainActivity extends ActionBarActivity {
 
     private void addDefaultPlayers() {
         //Create four default teams
-        String team1="Team One FC";
-        String team2="Team Two FC";
-        String team3="Team Three FC";
-        String team4="Team Four FC";
+        String team1="Team One F.C.";
+        String team2="Team Two F.C.";
+        String team3="Team Three F.C.";
+        String team4="Team Four F.C.";
 
-        addToHashtable(new Player("Mathew", "Rosemond", team1, 1, Player.position.FORWARD, 20, 10, 7, 30, 0, 2, 1, 0));
+        addToHashtable(new Player("Mathew", "Rosemond", team1, 1, Player.position.FORWARD, 20, 11, 7, 20, 0, 2, 1, 0));
         addToHashtable(new Player("Dominic", "Piesse", team2, 1, Player.position.FORWARD, 28, 9, 3, 19, 0, 1, 0, 0));
         addToHashtable(new Player("Adam", "Parsons", team3, 1, Player.position.FORWARD, 27, 12, 5, 18, 0, 1, 0, 0));
         addToHashtable(new Player("Zak", "Martin", team4, 1, Player.position.FORWARD, 27, 8, 3, 28, 0, 4, 1, 0));
         addToHashtable(new Player("George", "Byrne", team1, 2, Player.position.FORWARD, 26, 9, 8, 18, 0, 2, 1, 0));
-        addToHashtable(new Player("Lucas", "Webster", team2, 2, Player.position.FORWARD, 22, 14, 9, 31, 0, 6, 2, 0));
+        addToHashtable(new Player("Lucas", "Webster", team2, 2, Player.position.FORWARD, 22, 14, 9, 21, 0, 6, 2, 0));
         addToHashtable(new Player("Toby", "Mackay", team3, 2, Player.position.FORWARD, 21, 12, 7, 20, 0, 3, 0, 0));
-        addToHashtable(new Player("Mackenzie", "Akhtar", team4, 2, Player.position.FORWARD, 18, 5, 9, 12, 0, 1, 0, 0));
+        addToHashtable(new Player("Mackenzie", "Akhtar", team4, 2, Player.position.FORWARD, 18, 7, 9, 12, 0, 1, 0, 0));
         addToHashtable(new Player("Joe", "Parkes", team1, 3, Player.position.FORWARD, 23, 4, 8, 16, 0, 2, 0, 1));
         addToHashtable(new Player("Charlie", "Hayward", team2, 3, Player.position.FORWARD, 28, 6, 7, 20, 0, 4, 1, 0));
         addToHashtable(new Player("Brogan", "Martin", team3, 3, Player.position.FORWARD, 23, 3, 6, 14, 0, 1, 0, 0));
@@ -65,11 +65,11 @@ public class MainActivity extends ActionBarActivity {
         addToHashtable(new Player("Anthony", "Leathers", team1, 4, Player.position.FORWARD, 28, 0, 6, 9, 0, 1, 0, 0));
         addToHashtable(new Player("Glenn", "Wallace", team2, 4, Player.position.FORWARD, 19, 1, 4, 13, 0, 2, 0, 0));
         addToHashtable(new Player("Charles", "Carter", team3, 4, Player.position.FORWARD, 21, 1, 3, 8, 0, 2, 2, 0));
-        addToHashtable(new Player("Elliot", "Barr", team4, 4, Player.position.FORWARD, 28, 0, 2, 8, 0, 1, 0, 0));
+        addToHashtable(new Player("Elliot", "Barr", team4, 4, Player.position.FORWARD, 28, 2, 2, 8, 0, 1, 0, 0));
         addToHashtable(new Player("Jack", "Clark", team1, 5, Player.position.MIDFIELDER, 23, 0, 4, 9, 0, 1, 0, 0));
         addToHashtable(new Player("Daniel", "Bentley", team2, 5, Player.position.MIDFIELDER, 24, 1, 7, 6, 1, 0, 0, 0));
         addToHashtable(new Player("Jenson", "Taylor", team3, 5, Player.position.MIDFIELDER, 19, 2, 8, 4, 0, 2, 1, 0));
-        addToHashtable(new Player("Leo", "Wall", team4, 5, Player.position.MIDFIELDER, 27, 1, 6, 7, 1, 0, 0, 0));
+        addToHashtable(new Player("Leo", "Wall", team4, 5, Player.position.MIDFIELDER, 27, 2, 6, 7, 1, 0, 0, 0));
         addToHashtable(new Player("Dawid", "Hughes", team1, 6, Player.position.MIDFIELDER, 22, 0, 2, 8, 1, 3, 1, 0));
         addToHashtable(new Player("Xavier", "Davey", team2, 6, Player.position.MIDFIELDER, 20, 1, 5, 4, 0, 0, 0, 0));
         addToHashtable(new Player("Christopher", "Carter", team3, 6, Player.position.MIDFIELDER, 27, 0, 7, 2, 1, 1, 0, 0));
@@ -92,13 +92,22 @@ public class MainActivity extends ActionBarActivity {
         addToHashtable(new Player("Max", "Chamberlain", team4, 10, Player.position.DEFENDER, 25, 0, 0, 0, 12, 0, 0, 0));
         addToHashtable(new Player("William", "O'Malley", team1, 0, Player.position.GOALKEEPER, 25, 0, 0, 0, 37, 0, 0, 0));
         addToHashtable(new Player("Corey", "Short", team2, 0, Player.position.GOALKEEPER, 27, 0, 0, 0, 42, 0, 1, 0));
-        addToHashtable(new Player("Bailey", "Stephenson", team3, 0, Player.position.GOALKEEPER, 24, 0, 0, 0, 31, 0, 0, 0));
-        addToHashtable(new Player("Owen", "MacDonald", team4, 0, Player.position.GOALKEEPER, 23, 0, 0, 0, 26, 0, 0, 0));
-        
-        allTeams.get(team1).setTeamPhoto(BitmapFactory.decodeResource(getResources(), R.drawable.team_one_logo_small));
-        allTeams.get(team2).setTeamPhoto(BitmapFactory.decodeResource(getResources(),R.drawable.team_two_logo_small));
-        allTeams.get(team3).setTeamPhoto(BitmapFactory.decodeResource(getResources(),R.drawable.team_three_logo_small));
-        allTeams.get(team4).setTeamPhoto(BitmapFactory.decodeResource(getResources(),R.drawable.team_four_logo_small));
+        addToHashtable(new Player("Bailey", "Stephenson", team3, 0, Player.position.GOALKEEPER, 24, 0, 0, 0, 41, 0, 0, 0));
+        addToHashtable(new Player("Owen", "MacDonald", team4, 0, Player.position.GOALKEEPER, 23, 0, 0, 0, 36, 0, 0, 0));
+
+        allTeams.get(team1).setTeamPhoto(BitmapFactory.decodeResource(getResources(), R.drawable.team_1_crest));
+        allTeams.get(team2).setTeamPhoto(BitmapFactory.decodeResource(getResources(), R.drawable.team_2_crest));
+        allTeams.get(team3).setTeamPhoto(BitmapFactory.decodeResource(getResources(),R.drawable.team_3_crest));
+        allTeams.get(team4).setTeamPhoto(BitmapFactory.decodeResource(getResources(),R.drawable.team_4_crest));
+
+        allTeams.get(team1).setMotto("The Golden Ones");
+        allTeams.get(team2).setMotto("Better Together");
+        allTeams.get(team4).setMotto("Strength in Numbers");
+
+        allTeams.get(team1).setRecord(6, 8, 2);
+        allTeams.get(team2).setRecord(10,6,0);
+        allTeams.get(team3).setRecord(9,6,1);
+        allTeams.get(team4).setRecord(7,8,1);
     }
 
     private void addToHashtable(Player myPlayer) {

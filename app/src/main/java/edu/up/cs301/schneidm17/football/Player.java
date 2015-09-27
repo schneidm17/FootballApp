@@ -59,7 +59,6 @@ public class Player {
         setRCards(rCards);
     }
 
-
     /*
      * Set methods; will set as long as n is not negative
      * @returns true if the value was changed; otherwise returns false

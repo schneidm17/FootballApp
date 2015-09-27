@@ -1,6 +1,7 @@
 package edu.up.cs301.schneidm17.football;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
@@ -40,7 +41,14 @@ public class TeamSelect extends ActionBarActivity {
             teamTable.addView(teamEntry);
 
             ImageView teamImageView = new ImageView(this);
-            teamImageView.setImageBitmap(currentTeam.getTeamPhoto());
+            try {
+                Bitmap scaledTeamPhoto = Bitmap.createScaledBitmap(currentTeam.getTeamPhoto(), 400, 400, true);
+                teamImageView.setImageBitmap(scaledTeamPhoto);
+            } catch (NullPointerException e) {
+                teamImageView.setMinimumHeight(400);
+                teamImageView.setMinimumWidth(400);
+                teamImageView.setBackgroundColor(0x40ffffff);
+            }
             teamEntry.addView(teamImageView);
 
             TextView teamNameView = new TextView(this);

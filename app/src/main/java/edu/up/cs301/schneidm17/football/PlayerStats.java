@@ -1,5 +1,6 @@
 package edu.up.cs301.schneidm17.football;
 
+import android.graphics.Bitmap;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -9,7 +10,6 @@ import android.widget.TextView;
 
 
 public class PlayerStats extends ActionBarActivity {
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +37,7 @@ public class PlayerStats extends ActionBarActivity {
         TextView playerYCards = (TextView) findViewById(R.id.playerYCards);
         TextView playerRCards = (TextView) findViewById(R.id.playerRCards);
         ImageView playerPhoto = (ImageView) findViewById(R.id.playerPhoto);
+        ImageView TeamLogoPhoto = (ImageView) findViewById(R.id.playerTeamLogoView);
 
         playerFirstName.setText(myPlayer.getFirstName());
         playerLastName.setText(myPlayer.getLastName());
@@ -54,8 +55,18 @@ public class PlayerStats extends ActionBarActivity {
         playerSaves.setText(""+myPlayer.getSaves());
         playerFouls.setText(""+myPlayer.getFouls());
         playerYCards.setText(""+myPlayer.getyCards());
-        playerRCards.setText(""+myPlayer.getrCards());
+        playerRCards.setText("" + myPlayer.getrCards());
         playerPhoto.setImageBitmap(myPlayer.getPlayerPhoto());
+
+        try {
+            Bitmap scaledTeamPhoto = Bitmap.createScaledBitmap(
+            MainActivity.allTeams.get(myPlayer.getTeamName()).getTeamPhoto(),100,100,true);
+            TeamLogoPhoto.setImageBitmap(scaledTeamPhoto);
+        } catch (NullPointerException e) {
+            TeamLogoPhoto.setMinimumHeight(100);
+            TeamLogoPhoto.setMinimumWidth(100);
+            TeamLogoPhoto.setBackgroundColor(0x40ffffff);
+        }
     }
 
 

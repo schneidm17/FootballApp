@@ -85,7 +85,7 @@
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="View Players"
+                android:text="Browse Players"
                 android:id="@+id/gotoPlayerView"
                 android:textSize="40dp"
                 android:padding="15dp" />
@@ -93,7 +93,7 @@
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="View Teams"
+                android:text="Browse Teams"
                 android:id="@+id/gotoTeamView"
                 android:textSize="40dp"
                 android:padding="15dp" />
@@ -101,7 +101,7 @@
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Create Your\nOwn Teams"
+                android:text="Play Match"
                 android:id="@+id/button3"
                 android:textSize="40dp"
                 android:padding="15dp" />

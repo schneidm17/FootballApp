@@ -48,8 +48,7 @@
             android:text="#00"
             android:id="@+id/playerTeamNumber"
             android:textColor="#ffffffff"
-            android:textSize="40dp"
-            android:paddingRight="15dp" />
+            android:textSize="40dp" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -59,7 +58,18 @@
             android:id="@+id/playerTeamName"
             android:textColor="#ffffffff"
             android:textSize="40dp"
-            android:paddingLeft="15dp" />
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/playerTeamLogoView"
+            android:layout_gravity="center_vertical"
+            android:maxHeight="40dp"
+            android:maxWidth="40dp"
+            android:minHeight="40dp"
+            android:minWidth="40dp" />
     </LinearLayout>
 
     <Space
