@@ -85,9 +85,10 @@ public class TeamEdit extends ActionBarActivity implements View.OnClickListener{
                 String wins = this.teamWinsField.getText().toString().trim();
                 String losses = this.teamLossesField.getText().toString().trim();
                 String ties = this.teamTiesField.getText().toString().trim();
-                int numWins = Integer.parseInt(wins);
-                int numLosses = Integer.parseInt(losses);
-                int numTies = Integer.parseInt(ties);
+
+                int numWins = (wins.equals("")) ? Integer.parseInt(wins) : 0;
+                int numLosses = (losses.equals("")) ? Integer.parseInt(losses) : 0;
+                int numTies = (ties.equals("")) ? Integer.parseInt(ties) : 0;
                 currentTeam.setRecord(numWins, numLosses, numTies);
             } catch (NumberFormatException e) {
                 currentTeam.setRecord(0,0,0);

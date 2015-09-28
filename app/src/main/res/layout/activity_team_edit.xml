@@ -14,7 +14,8 @@
         android:layout_gravity="center_horizontal"
         android:minWidth="200dp"
         android:textColor="#ffffffff"
-        android:textSize="60dp" />
+        android:textSize="60dp"
+        android:inputType="textCapWords" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -24,7 +25,8 @@
         android:textColor="#ffffffff"
         android:textSize="40dp"
         android:textStyle="italic"
-        android:minWidth="200dp" />
+        android:minWidth="200dp"
+        android:inputType="textCapWords" />
 
     <Space
         android:layout_width="match_parent"
