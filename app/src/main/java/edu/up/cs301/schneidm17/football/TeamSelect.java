@@ -35,7 +35,7 @@ public class TeamSelect extends ActionBarActivity {
         while(myTeams.hasMoreElements())
         {
             final Team currentTeam=myTeams.nextElement();
-            LinearLayout teamEntry= new LinearLayout(this);
+            LinearLayout teamEntry = new LinearLayout(this);
             teamEntry.setOrientation(LinearLayout.VERTICAL);
             teamEntry.setPadding(10, 10, 10, 10);
             teamTable.addView(teamEntry);
@@ -72,6 +72,7 @@ public class TeamSelect extends ActionBarActivity {
     }
 
     public void createNewTeam(View view){
+        teamSelected = null;
         startActivity(new Intent(TeamSelect.this, TeamEdit.class));
     }
 }

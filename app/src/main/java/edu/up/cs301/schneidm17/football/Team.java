@@ -48,13 +48,15 @@ public class Team {
     }
 
     public boolean addPlayer(Player newPlayer) {
+        if (TeamPlayers.put(newPlayer.hash(), newPlayer)==null)
+            return false;
         totalGoals+=newPlayer.getGoals();
         totalShots+=newPlayer.getShots();
         totalSaves+=newPlayer.getSaves();
         totalFouls+=newPlayer.getFouls();
         totalYCards+=newPlayer.getyCards();
         totalRCards+=newPlayer.getrCards();
-        return (TeamPlayers.put(newPlayer.hash(), newPlayer)!=null);
+        return true;
     }
 
     public boolean setTeamPhoto(Bitmap b) {if (b == null) return false; teamPhoto = b; return true;}
@@ -68,6 +70,9 @@ public class Team {
     public String getTeamMotto() {return "\""+teamMotto+"\"";}
     public String getRecord() {if(wins+losses+ties==0) return null;
         else if(ties==0) return wins+"-"+losses; return wins+"-"+losses+"-"+ties;}
+    public int getWins() {return wins;}
+    public int getLosses() {return losses;}
+    public int getTies() {return ties;}
     public int getTotalGoals() {return totalGoals;}
     public int getTotalShots() {return totalShots;}
     public int getTotalSaves() {return totalSaves;}

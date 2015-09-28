@@ -14,7 +14,6 @@
         android:layout_gravity="center_horizontal"
         android:minWidth="200dp"
         android:textColor="#ffffffff"
-        android:text="Team Name"
         android:textSize="60dp" />
 
     <EditText
@@ -22,7 +21,6 @@
         android:layout_height="wrap_content"
         android:id="@+id/teamMottoField"
         android:layout_gravity="center_horizontal"
-        android:text="Team Motto (Optional)"
         android:textColor="#ffffffff"
         android:textSize="40dp"
         android:textStyle="italic"
@@ -142,5 +140,34 @@
 
         </TableLayout>
     </FrameLayout>
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="20px" />
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:id="@+id/teamControlButtonFrame">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Save"
+            android:id="@+id/saveTeamStatsButton"
+            android:layout_gravity="center_horizontal"
+            android:textSize="30dp"
+            android:minWidth="150dp" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Cancel"
+            android:id="@+id/cancelTeamStatsButton"
+            android:textSize="30dp"
+            android:minWidth="150dp" />
+    </LinearLayout>
 
 </LinearLayout>
