@@ -14,7 +14,19 @@ public class MainActivity extends ActionBarActivity {
 
     public static Hashtable<String, Player> allPlayers;
     public static Hashtable<String, Team> allTeams;
-    Bitmap defaultPhoto;
+    private Bitmap defaultPhoto;
+    private Bitmap teamOnePlayer;
+    private Bitmap teamOneKeeper;
+    private Bitmap teamTwoPlayer;
+    private Bitmap teamTwoKeeper;
+    private Bitmap teamThreePlayer;
+    private Bitmap teamThreeKeeper;
+    private Bitmap teamFourPlayer;
+    private Bitmap teamFourKeeper;
+    private String team1="Team One F.C.";
+    private String team2="Team Two F.C.";
+    private String team3="Team Three F.C.";
+    private String team4="Team Four F.C.";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,7 +35,16 @@ public class MainActivity extends ActionBarActivity {
 
         allPlayers = new Hashtable<>();
         allTeams = new Hashtable<>();
-        defaultPhoto = BitmapFactory.decodeResource(getResources(), R.drawable.player_default);
+        defaultPhoto = BitmapFactory.decodeResource(getResources(), R.drawable.team_none);
+        teamOnePlayer = BitmapFactory.decodeResource(getResources(), R.drawable.team_1_kit);
+        teamOneKeeper = BitmapFactory.decodeResource(getResources(), R.drawable.team_1_gkit);
+        teamTwoPlayer = BitmapFactory.decodeResource(getResources(), R.drawable.team_2_kit);
+        teamTwoKeeper = BitmapFactory.decodeResource(getResources(), R.drawable.team_2_gkit);
+        teamThreePlayer = BitmapFactory.decodeResource(getResources(), R.drawable.team_3_kit);
+        teamThreeKeeper = BitmapFactory.decodeResource(getResources(), R.drawable.team_3_gkit);
+        teamFourPlayer = BitmapFactory.decodeResource(getResources(), R.drawable.team_4_kit);
+        teamFourKeeper = BitmapFactory.decodeResource(getResources(), R.drawable.team_4_gkit);
+
         addDefaultPlayers();
 
         Button gotoPlayerViewButton = (Button)findViewById(R.id.gotoPlayerView);
@@ -53,11 +74,6 @@ public class MainActivity extends ActionBarActivity {
 
     private void addDefaultPlayers() {
         //Create four default teams
-        String team1="Team One F.C.";
-        String team2="Team Two F.C.";
-        String team3="Team Three F.C.";
-        String team4="Team Four F.C.";
-
         addToHashtable(new Player("Mathew", "Rosemond", team1, 1, Player.position.FORWARD, 20, 11, 7, 20, 0, 2, 1, 0));
         addToHashtable(new Player("Dominic", "Piesse", team2, 1, Player.position.FORWARD, 28, 9, 3, 19, 0, 1, 0, 0));
         addToHashtable(new Player("Adam", "Parsons", team3, 1, Player.position.FORWARD, 27, 12, 5, 18, 0, 1, 0, 0));
@@ -70,10 +86,10 @@ public class MainActivity extends ActionBarActivity {
         addToHashtable(new Player("Charlie", "Hayward", team2, 3, Player.position.FORWARD, 28, 6, 7, 20, 0, 4, 1, 0));
         addToHashtable(new Player("Brogan", "Martin", team3, 3, Player.position.FORWARD, 23, 3, 6, 14, 0, 1, 0, 0));
         addToHashtable(new Player("Jeremy", "Hartog", team4, 3, Player.position.FORWARD, 19, 2, 4, 10, 0, 3, 0, 0));
-        addToHashtable(new Player("Anthony", "Leathers", team1, 4, Player.position.FORWARD, 28, 0, 6, 9, 0, 1, 0, 0));
-        addToHashtable(new Player("Glenn", "Wallace", team2, 4, Player.position.FORWARD, 19, 1, 4, 13, 0, 2, 0, 0));
-        addToHashtable(new Player("Charles", "Carter", team3, 4, Player.position.FORWARD, 21, 1, 3, 8, 0, 2, 2, 0));
-        addToHashtable(new Player("Elliot", "Barr", team4, 4, Player.position.FORWARD, 28, 2, 2, 8, 0, 1, 0, 0));
+        addToHashtable(new Player("Anthony", "Leathers", team1, 4, Player.position.MIDFIELDER, 28, 0, 6, 9, 0, 1, 0, 0));
+        addToHashtable(new Player("Glenn", "Wallace", team2, 4, Player.position.MIDFIELDER, 19, 1, 4, 13, 0, 2, 0, 0));
+        addToHashtable(new Player("Charles", "Carter", team3, 4, Player.position.MIDFIELDER, 21, 1, 3, 8, 0, 2, 2, 0));
+        addToHashtable(new Player("Elliot", "Barr", team4, 4, Player.position.MIDFIELDER, 28, 2, 2, 8, 0, 1, 0, 0));
         addToHashtable(new Player("Jack", "Clark", team1, 5, Player.position.MIDFIELDER, 23, 0, 4, 9, 0, 1, 0, 0));
         addToHashtable(new Player("Daniel", "Bentley", team2, 5, Player.position.MIDFIELDER, 24, 1, 7, 6, 1, 0, 0, 0));
         addToHashtable(new Player("Jenson", "Taylor", team3, 5, Player.position.MIDFIELDER, 19, 2, 8, 4, 0, 2, 1, 0));
@@ -119,7 +135,25 @@ public class MainActivity extends ActionBarActivity {
     }
 
     private void addToHashtable(Player myPlayer) {
-        myPlayer.setPlayerPhoto(defaultPhoto);
+        if(myPlayer.getTeamName().equals(team1) && myPlayer.getPositionEnum().equals(Player.position.GOALKEEPER))
+            {myPlayer.setPlayerPhoto(teamOneKeeper);}
+        else if (myPlayer.getTeamName().equals(team1))
+            {myPlayer.setPlayerPhoto(teamOnePlayer);}
+        else if(myPlayer.getTeamName().equals(team2) && myPlayer.getPositionEnum().equals(Player.position.GOALKEEPER))
+            {myPlayer.setPlayerPhoto(teamTwoKeeper);}
+        else if (myPlayer.getTeamName().equals(team2))
+            {myPlayer.setPlayerPhoto(teamTwoPlayer);}
+        else if(myPlayer.getTeamName().equals(team3) && myPlayer.getPositionEnum().equals(Player.position.GOALKEEPER))
+            {myPlayer.setPlayerPhoto(teamThreeKeeper);}
+        else if (myPlayer.getTeamName().equals(team3))
+            {myPlayer.setPlayerPhoto(teamThreePlayer);}
+        else if(myPlayer.getTeamName().equals(team4) && myPlayer.getPositionEnum().equals(Player.position.GOALKEEPER))
+            {myPlayer.setPlayerPhoto(teamFourKeeper);}
+        else if (myPlayer.getTeamName().equals(team4))
+            {myPlayer.setPlayerPhoto(teamFourPlayer);}
+        else
+            {myPlayer.setPlayerPhoto(defaultPhoto);}
+
         allPlayers.put(myPlayer.hash(), myPlayer);
         if(allTeams.containsKey(myPlayer.getTeamName())) {
             allTeams.get(myPlayer.getTeamName()).addPlayer(myPlayer);
