@@ -1,5 +1,6 @@
 package edu.up.cs301.schneidm17.football;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Color;
 import android.support.v7.app.ActionBarActivity;
@@ -18,15 +19,34 @@ import java.util.Hashtable;
 
 public class PlayerSelect extends ActionBarActivity {
 
-    public static Player playerSelected;
+    //public static Player playerSelected;
+    public static final String PLAYER_SELECTED = "PLAYER_SELECTED";
+    public static final String TEAM_TO_HIDE = "TEAM_TO_HIDE";
+    public static final String ADD_PLAYER_BUTTONS_VISIBLE = "ADD_PLAYER_BUTTONS_VISIBLE";
+    private boolean addButtonsView;
+    private Team hiddenTeam;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_player_select);
 
+        Intent myIntent = getIntent();
+        addButtonsView = myIntent.getBooleanExtra(ADD_PLAYER_BUTTONS_VISIBLE, false);
+        String teamToHide = myIntent.getStringExtra(TEAM_TO_HIDE);
+        try {
+            hiddenTeam = (teamToHide == null) ? null : MainActivity.allTeams.get(teamToHide);
+        } catch (Exception e) {
+            hiddenTeam = null;
+        }
+
+        TextView subtitle = (TextView) findViewById(R.id.selectPlayerSubtitle);
+        if(addButtonsView) {
+            subtitle.setText("Click on a player to add them to your team");
+        }
+
         createPlayerTable();
-        playerSelected=null;
+        //playerSelected=null;
     }
 
     private void createPlayerTable() {
@@ -36,16 +56,31 @@ public class PlayerSelect extends ActionBarActivity {
         while(myPlayers.hasMoreElements())
         {
             final Player currentPlayer=myPlayers.nextElement();
-            String bufferString = "          ";
+            if(hiddenTeam!=null && hiddenTeam.getTeamPlayers().containsValue(currentPlayer)) {
+                continue;
+            }
 
+            String bufferString = "          ";
             TableRow myRow = new TableRow(this);
             myTable.addView(myRow);
-            myRow.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    gotoPlayerStats(currentPlayer);
-                }
-            });
+            if(!addButtonsView) {
+                myRow.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        gotoPlayerStats(currentPlayer);
+                    }
+                });
+            } else {
+                myRow.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent data = new Intent();
+                        data.putExtra(PLAYER_SELECTED, currentPlayer.hash());
+                        setResult(Activity.RESULT_OK, data);
+                        finish();
+                    }
+                });
+            }
             TextView playerName = new TextView(this);
             playerName.setText(currentPlayer.getFirstName() + " " + currentPlayer.getLastName() + bufferString);
             playerName.setTextColor(Color.WHITE);
@@ -67,7 +102,8 @@ public class PlayerSelect extends ActionBarActivity {
     }
 
     private void gotoPlayerStats(Player myPlayer) {
-        playerSelected = myPlayer;
-        startActivity(new Intent(PlayerSelect.this, PlayerStats.class));
+        Intent newIntent = new Intent(PlayerSelect.this, PlayerStats.class);
+        newIntent.putExtra(PLAYER_SELECTED, myPlayer.hash());
+        startActivity(newIntent);
     }
 }

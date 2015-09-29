@@ -2,6 +2,7 @@ package edu.up.cs301.schneidm17.football;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Color;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -9,12 +10,17 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TableLayout;
+import android.widget.TableRow;
 import android.widget.TextView;
 
 import java.io.Externalizable;
+import java.util.Enumeration;
 
 
 public class TeamEdit extends ActionBarActivity implements View.OnClickListener{
+
+    private static final int SELECT_PLAYER_TO_ADD_REQUEST = 369;
 
     private Team currentTeam;
     private String teamNamePrompt = "Team Name";
@@ -29,6 +35,9 @@ public class TeamEdit extends ActionBarActivity implements View.OnClickListener{
 
     private Button saveButton;
     private Button cancelButton;
+    private Button addButton;
+    private Button removeButton;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,8 +53,12 @@ public class TeamEdit extends ActionBarActivity implements View.OnClickListener{
 
         saveButton = (Button)findViewById(R.id.saveTeamStatsButton);
         cancelButton = (Button)findViewById(R.id.cancelTeamStatsButton);
+        addButton = (Button)findViewById(R.id.addPlayerToTeamButton);
+        removeButton = (Button)findViewById(R.id.removePlayerFromTeamButton);
         saveButton.setOnClickListener(this);
         cancelButton.setOnClickListener(this);
+        addButton.setOnClickListener(this);
+        removeButton.setOnClickListener(this);
 
         Intent myIntent = getIntent();
         String currentTeamName = myIntent.getStringExtra(TeamSelect.TEAM_TO_BE_EDITED);
@@ -56,6 +69,7 @@ public class TeamEdit extends ActionBarActivity implements View.OnClickListener{
         }
 
         loadTeamData();
+        importTeamPlayers();
     }
 
     private void loadTeamData(){
@@ -73,11 +87,75 @@ public class TeamEdit extends ActionBarActivity implements View.OnClickListener{
         teamMottoField.setText((currentTeam.hasMotto()) ? currentTeam.getTeamMotto() : teamMottoPrompt);
         teamWinsField.setText(""+currentTeam.getWins());
         teamLossesField.setText("" + currentTeam.getLosses());
-        teamTiesField.setText(""+currentTeam.getTies());
+        teamTiesField.setText("" + currentTeam.getTies());
+    }
+
+    private void importTeamPlayers() {
+        if(currentTeam==null) {
+            return;
+        }
+
+        TableLayout myTable = (TableLayout)findViewById(R.id.teamPlayerEditTableView);
+        Enumeration<Player> myPlayers = currentTeam.getTeamPlayers().elements();
+
+        while(myPlayers.hasMoreElements())
+        {
+            final Player currentPlayer=myPlayers.nextElement();
+            String bufferString = "          ";
+
+            TableRow myRow = new TableRow(this);
+            myTable.addView(myRow);
+            myRow.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    editTeamMembers(currentPlayer);
+                }
+            });
+            TextView playerName = new TextView(this);
+            playerName.setText(currentPlayer.getFirstName() + " " + currentPlayer.getLastName() + bufferString);
+            playerName.setTextColor(Color.WHITE);
+            playerName.setTextSize(20);
+            myRow.addView(playerName);
+
+            TextView playerPosition = new TextView(this);
+            playerPosition.setText(currentPlayer.getPosition() + bufferString);
+            playerPosition.setTextColor(Color.WHITE);
+            playerPosition.setTextSize(15);
+            myRow.addView(playerPosition);
+
+            TextView playerTeamInfo = new TextView(this);
+            playerTeamInfo.setText(currentPlayer.getTeamNumber() + ", " + currentPlayer.getTeamName());
+            playerTeamInfo.setTextColor(Color.WHITE);
+            playerTeamInfo.setTextSize(15);
+            myRow.addView(playerTeamInfo);
+        }
+    }
+
+    private void editTeamMembers(Player myPlayer) {
+
+
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if(requestCode==SELECT_PLAYER_TO_ADD_REQUEST && resultCode== Activity.RESULT_OK){
+            String playerToAdd=data.getStringExtra(PlayerSelect.PLAYER_SELECTED);
+            try {
+                Player newPlayer = MainActivity.allPlayers.get(playerToAdd);
+                currentTeam.addPlayer(newPlayer);
+            } catch (Exception ignore)
+            {}
+        }
     }
 
     @Override
     public void onClick(View view) {
+        if(view.equals(addButton)){
+            Intent newIntent = new Intent(TeamEdit.this, PlayerSelect.class);
+            newIntent.putExtra(PlayerSelect.ADD_PLAYER_BUTTONS_VISIBLE, true);
+            startActivityForResult(newIntent, SELECT_PLAYER_TO_ADD_REQUEST);
+        }
+
         if(view.equals(saveButton)){
             String teamName = this.teamNameField.getText().toString().trim();
             if(teamName.equals(teamNamePrompt) || teamName.equals("")) {

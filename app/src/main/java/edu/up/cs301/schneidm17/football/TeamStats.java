@@ -28,7 +28,6 @@ public class TeamStats extends ActionBarActivity implements View.OnClickListener
     Button editButton;
     Button cancelButton;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -94,6 +93,10 @@ public class TeamStats extends ActionBarActivity implements View.OnClickListener
     }
 
     private void importTeamPlayers() {
+        if (myTeam == null) {
+            return;
+        }
+
         TableLayout myTable = (TableLayout)findViewById(R.id.teamPlayerTableView);
         Enumeration<Player> myPlayers = myTeam.getTeamPlayers().elements();
 
@@ -131,8 +134,11 @@ public class TeamStats extends ActionBarActivity implements View.OnClickListener
     }
 
     private void gotoPlayerStats(Player myPlayer) {
-        PlayerSelect.playerSelected = myPlayer;
-        startActivity(new Intent(TeamStats.this, PlayerStats.class));
+
+        Intent newIntent = new Intent(TeamStats.this, PlayerStats.class);
+        newIntent.putExtra(PlayerSelect.PLAYER_SELECTED, myPlayer.hash());
+        newIntent.putExtra(PlayerSelect.ADD_PLAYER_BUTTONS_VISIBLE, false);
+        startActivity(newIntent);
     }
 
 

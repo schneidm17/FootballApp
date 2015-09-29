@@ -1,5 +1,6 @@
 package edu.up.cs301.schneidm17.football;
 
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
@@ -15,7 +16,12 @@ public class PlayerStats extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_player_stats);
-        importPlayerStats(PlayerSelect.playerSelected);
+
+        Intent myIntent = getIntent();
+        String currentPlayerHash = myIntent.getStringExtra(PlayerSelect.PLAYER_SELECTED);
+        if(MainActivity.allPlayers.containsKey(currentPlayerHash)) {
+            importPlayerStats(MainActivity.allPlayers.get(currentPlayerHash));
+        }
     }
 
     private void importPlayerStats(Player myPlayer) {

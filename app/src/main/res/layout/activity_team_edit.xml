@@ -7,53 +7,53 @@
     android:padding="20dp"
     tools:context="edu.up.cs301.schneidm17.football.TeamEdit">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="@string/teamNameString"
-        android:id="@+id/teamNameNoEditField"
-        android:textColor="#ffffffff"
-        android:textSize="60dp"
-        android:layout_gravity="center_horizontal"
-        android:visibility="gone" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/teamNameField"
-        android:layout_gravity="center_horizontal"
-        android:minWidth="200dp"
-        android:textColor="#ffffffff"
-        android:textSize="60dp"
-        android:inputType="textCapWords" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/teamMottoField"
-        android:layout_gravity="center_horizontal"
-        android:textColor="#ffffffff"
-        android:textSize="40dp"
-        android:textStyle="italic"
-        android:minWidth="200dp"
-        android:inputType="textCapWords" />
-
-    <Space
+    <LinearLayout
+        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="20dp" />
+        android:layout_height="match_parent"
+        android:layout_weight="1">
 
-    <FrameLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/teamStatsEdiFrame"
-        android:layout_weight="1"
-        android:layout_gravity="center_horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="@string/teamNameString"
+            android:id="@+id/teamNameNoEditField"
+            android:textColor="#ffffffff"
+            android:textSize="60dp"
+            android:layout_gravity="center_horizontal"
+            android:visibility="gone" />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/teamNameField"
+            android:layout_gravity="center_horizontal"
+            android:minWidth="200dp"
+            android:textColor="#ffffffff"
+            android:textSize="60dp"
+            android:inputType="textCapWords" />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/teamMottoField"
+            android:layout_gravity="center_horizontal"
+            android:textColor="#ffffffff"
+            android:textSize="40dp"
+            android:textStyle="italic"
+            android:minWidth="200dp"
+            android:inputType="textCapWords" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="20dp" />
 
         <TableLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:id="@+id/teamStatsEditTable" >
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/teamStatsEditTable"
+            android:layout_gravity="center_horizontal">
 
             <TableRow
                 android:layout_width="match_parent"
@@ -152,11 +152,46 @@
             </TableRow>
 
         </TableLayout>
-    </FrameLayout>
 
-    <Space
-        android:layout_width="match_parent"
-        android:layout_height="20px" />
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="20px" />
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal">
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Add Player"
+                android:id="@+id/addPlayerToTeamButton"
+                android:textSize="20dp"
+                android:minWidth="200dp" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Remove Player"
+                android:id="@+id/removePlayerFromTeamButton"
+                android:textSize="20dp"
+                android:minWidth="200dp" />
+        </LinearLayout>
+
+        <ScrollView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/teamPlayerEditScrollView"
+            android:layout_gravity="center_horizontal" >
+
+            <TableLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/teamPlayerEditTableView" />
+        </ScrollView>
+    </LinearLayout>
 
     <LinearLayout
         android:orientation="horizontal"
@@ -171,15 +206,15 @@
             android:text="Save"
             android:id="@+id/saveTeamStatsButton"
             android:layout_gravity="center_horizontal"
-            android:textSize="30dp"
-            android:minWidth="150dp" />
+            android:minWidth="150dp"
+            android:textSize="20dp" />
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Cancel"
             android:id="@+id/cancelTeamStatsButton"
-            android:textSize="30dp"
+            android:textSize="20dp"
             android:minWidth="150dp" />
     </LinearLayout>
 

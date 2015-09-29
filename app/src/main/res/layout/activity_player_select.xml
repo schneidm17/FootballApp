@@ -22,7 +22,7 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Click on a player to view their stats"
-        android:id="@+id/SelectPlayerSubtitle"
+        android:id="@+id/selectPlayerSubtitle"
         android:layout_gravity="center_horizontal"
         android:textColor="#ffffffff"
         android:textSize="20dp"
