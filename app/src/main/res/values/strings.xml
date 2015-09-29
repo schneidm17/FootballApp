@@ -31,4 +31,7 @@
     <string name="title_activity_team_stats">View Team Stats</string>
     <string name="title_activity_team_select">View All Teams</string>
     <string name="title_activity_team_edit">Edit Team Stats</string>
+    <string name="title_activity_play_match">PlayMatch</string>
+
+    <string name="hello_world">Hello world!</string>
 </resources>

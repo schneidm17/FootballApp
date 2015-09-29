@@ -102,7 +102,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Play Match"
-                android:id="@+id/button3"
+                android:id="@+id/playMatchButton"
                 android:textSize="40dp"
                 android:padding="15dp" />
         </TableLayout>

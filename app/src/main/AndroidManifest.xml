@@ -40,6 +40,10 @@
             android:name=".PlayerEdit"
             android:label="@string/title_activity_player_edit" >
         </activity>
+        <activity
+            android:name=".PlayMatch"
+            android:label="@string/title_activity_play_match" >
+        </activity>
     </application>
 
 </manifest>

@@ -41,6 +41,14 @@ public class MainActivity extends ActionBarActivity {
                 startActivity(new Intent(MainActivity.this, TeamSelect.class));
             }
         });
+
+        Button startMatchButton = (Button)findViewById(R.id.playMatchButton);
+        startMatchButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, PlayMatch.class));
+            }
+        });
     }
 
     private void addDefaultPlayers() {

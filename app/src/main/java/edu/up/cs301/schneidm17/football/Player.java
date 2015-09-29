@@ -89,6 +89,7 @@ public class Player {
             default: return "Goalkeeper";
         }
     }
+    public position getPositionEnum() {return playerPosition;}
     public int getGoals() {return goals;}
     public int getAssists() {return assists;}
     public int getShots() {return shots;}
