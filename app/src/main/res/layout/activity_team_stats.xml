@@ -8,333 +8,368 @@
     tools:context="edu.up.cs301.schneidm17.football.TeamStats">
 
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="@string/teamNameString"
-        android:id="@+id/teamName"
-        android:textColor="#ffffffff"
-        android:textSize="60dp"
-        android:layout_gravity="center_horizontal" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="@string/teamMottoString"
-        android:id="@+id/teamMotto"
-        android:textColor="#ffffffff"
-        android:textSize="40dp"
-        android:paddingLeft="20dp"
-        android:paddingRight="20dp"
-        android:layout_gravity="center_horizontal"
-        android:textStyle="italic" />
-
-    <Space
+    <LinearLayout
+        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="20dp" />
+        android:layout_height="match_parent"
+        android:layout_weight="1">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="@string/teamNameString"
+            android:id="@+id/teamName"
+            android:textColor="#ffffffff"
+            android:textSize="60dp"
+            android:layout_gravity="center_horizontal" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="@string/teamMottoString"
+            android:id="@+id/teamMotto"
+            android:textColor="#ffffffff"
+            android:textSize="40dp"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:layout_gravity="center_horizontal"
+            android:textStyle="italic" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="20dp" />
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/teamPhotoStatsView"
+            android:layout_gravity="center_horizontal">
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/teamPhotoFrame"
+                android:layout_weight="1">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/teamLogoView"
+                    android:layout_gravity="center_vertical|right" />
+
+            </FrameLayout>
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/teamStatsFrame"
+                android:layout_weight="1">
+
+                <TableLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/teamStatsTable" >
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:id="@+id/numPlayersRow" >
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:text="@string/numPlayersString"
+                            android:id="@+id/numPlayersPrompt"
+                            android:textColor="#ffffffff"
+                            android:layout_gravity="right"
+                            android:paddingRight="5dp"
+                            android:paddingTop="2dp"
+                            android:paddingBottom="2dp"
+                            android:paddingLeft="20dp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:text="@string/unknown"
+                            android:id="@+id/numPlayers"
+                            android:textColor="#ffffffff"
+                            android:paddingLeft="5dp"
+                            android:paddingTop="2dp"
+                            android:paddingRight="20dp"
+                            android:paddingBottom="2dp" />
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:id="@+id/teamRecordRow" >
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:text="@string/teamRecordString"
+                            android:id="@+id/teamRecordPrompt"
+                            android:textColor="#ffffffff"
+                            android:layout_gravity="right"
+                            android:paddingRight="5dp"
+                            android:paddingTop="2dp"
+                            android:paddingBottom="2dp"
+                            android:paddingLeft="20dp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:text="@string/unknown"
+                            android:id="@+id/teamRecord"
+                            android:textColor="#ffffffff"
+                            android:paddingLeft="5dp"
+                            android:paddingTop="2dp"
+                            android:paddingRight="20dp"
+                            android:paddingBottom="2dp" />
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:id="@+id/teamGoalsRow" >
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:text="@string/teamGoalsString"
+                            android:id="@+id/teamGoalsPrompt"
+                            android:textColor="#ffffffff"
+                            android:layout_gravity="right"
+                            android:paddingRight="5dp"
+                            android:paddingTop="2dp"
+                            android:paddingBottom="2dp"
+                            android:paddingLeft="20dp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:text="@string/unknown"
+                            android:id="@+id/teamGoals"
+                            android:textColor="#ffffffff"
+                            android:paddingLeft="5dp"
+                            android:paddingTop="2dp"
+                            android:paddingRight="20dp"
+                            android:paddingBottom="2dp" />
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:id="@+id/teamShotsRow" >
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:text="@string/teamShotsString"
+                            android:id="@+id/teamShotsPrompt"
+                            android:textColor="#ffffffff"
+                            android:layout_gravity="right"
+                            android:paddingRight="5dp"
+                            android:paddingTop="2dp"
+                            android:paddingBottom="2dp"
+                            android:paddingLeft="20dp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:text="@string/unknown"
+                            android:id="@+id/teamShots"
+                            android:textColor="#ffffffff"
+                            android:paddingLeft="5dp"
+                            android:paddingTop="2dp"
+                            android:paddingRight="20dp"
+                            android:paddingBottom="2dp" />
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:id="@+id/teamSavesRow" >
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:text="@string/teamSavesString"
+                            android:id="@+id/teamSavesPrompt"
+                            android:textColor="#ffffffff"
+                            android:layout_gravity="right"
+                            android:paddingRight="5dp"
+                            android:paddingTop="2dp"
+                            android:paddingBottom="2dp"
+                            android:paddingLeft="20dp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:text="@string/unknown"
+                            android:id="@+id/teamSaves"
+                            android:textColor="#ffffffff"
+                            android:paddingLeft="5dp"
+                            android:paddingTop="2dp"
+                            android:paddingRight="20dp"
+                            android:paddingBottom="2dp" />
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:id="@+id/teamsFoulsRow" >
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:text="@string/teamFoulsString"
+                            android:id="@+id/teamFoulsPrompt"
+                            android:textColor="#ffffffff"
+                            android:layout_gravity="right"
+                            android:paddingRight="5dp"
+                            android:paddingTop="2dp"
+                            android:paddingBottom="2dp"
+                            android:paddingLeft="20dp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:text="@string/unknown"
+                            android:id="@+id/teamFouls"
+                            android:textColor="#ffffffff"
+                            android:paddingLeft="5dp"
+                            android:paddingTop="2dp"
+                            android:paddingRight="20dp"
+                            android:paddingBottom="2dp" />
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:id="@+id/teamYCardsRow" >
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:text="@string/teamYCardsString"
+                            android:id="@+id/teamYCardsPrompt"
+                            android:textColor="#ffffffff"
+                            android:layout_gravity="right"
+                            android:paddingRight="5dp"
+                            android:paddingTop="2dp"
+                            android:paddingBottom="2dp"
+                            android:paddingLeft="20dp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:text="@string/unknown"
+                            android:id="@+id/teamYCards"
+                            android:textColor="#ffffffff"
+                            android:paddingLeft="5dp"
+                            android:paddingTop="2dp"
+                            android:paddingRight="20dp"
+                            android:paddingBottom="2dp" />
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:id="@+id/teamRCardsRow" >
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:text="@string/teamRCardsString"
+                            android:id="@+id/teamRCardsPrompt"
+                            android:textColor="#ffffffff"
+                            android:layout_gravity="right"
+                            android:paddingRight="5dp"
+                            android:paddingTop="2dp"
+                            android:paddingBottom="2dp"
+                            android:paddingLeft="20dp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:text="@string/unknown"
+                            android:id="@+id/teamRCards"
+                            android:textColor="#ffffffff"
+                            android:paddingLeft="5dp"
+                            android:paddingTop="2dp"
+                            android:paddingRight="20dp"
+                            android:paddingBottom="2dp" />
+                    </TableRow>
+                </TableLayout>
+
+            </FrameLayout>
+        </LinearLayout>
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="20dp" />
+
+        <ScrollView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/teamPlayerTableScrollView"
+            android:layout_gravity="center_horizontal">
+
+            <TableLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/teamPlayerTableView">
+
+            </TableLayout>
+        </ScrollView>
+
+    </LinearLayout>
 
     <LinearLayout
         android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/teamPhotoStatsView"
-        android:layout_gravity="center_horizontal">
-
-        <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:id="@+id/teamPhotoFrame"
-            android:layout_weight="1">
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/teamLogoView"
-                android:layout_gravity="center_vertical|right" />
-
-        </FrameLayout>
-
-        <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:id="@+id/teamStatsFrame"
-            android:layout_weight="1">
-
-            <TableLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:id="@+id/teamStatsTable" >
-
-                <TableRow
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:id="@+id/numPlayersRow" >
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textAppearance="?android:attr/textAppearanceMedium"
-                        android:text="@string/numPlayersString"
-                        android:id="@+id/numPlayersPrompt"
-                        android:textColor="#ffffffff"
-                        android:layout_gravity="right"
-                        android:paddingRight="5dp"
-                        android:paddingTop="2dp"
-                        android:paddingBottom="2dp"
-                        android:paddingLeft="20dp" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textAppearance="?android:attr/textAppearanceMedium"
-                        android:text="@string/unknown"
-                        android:id="@+id/numPlayers"
-                        android:textColor="#ffffffff"
-                        android:paddingLeft="5dp"
-                        android:paddingTop="2dp"
-                        android:paddingRight="20dp"
-                        android:paddingBottom="2dp" />
-                </TableRow>
-
-                <TableRow
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:id="@+id/teamRecordRow" >
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textAppearance="?android:attr/textAppearanceMedium"
-                        android:text="@string/teamRecordString"
-                        android:id="@+id/teamRecordPrompt"
-                        android:textColor="#ffffffff"
-                        android:layout_gravity="right"
-                        android:paddingRight="5dp"
-                        android:paddingTop="2dp"
-                        android:paddingBottom="2dp"
-                        android:paddingLeft="20dp" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textAppearance="?android:attr/textAppearanceMedium"
-                        android:text="@string/unknown"
-                        android:id="@+id/teamRecord"
-                        android:textColor="#ffffffff"
-                        android:paddingLeft="5dp"
-                        android:paddingTop="2dp"
-                        android:paddingRight="20dp"
-                        android:paddingBottom="2dp" />
-                </TableRow>
-
-                <TableRow
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:id="@+id/teamGoalsRow" >
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textAppearance="?android:attr/textAppearanceMedium"
-                        android:text="@string/teamGoalsString"
-                        android:id="@+id/teamGoalsPrompt"
-                        android:textColor="#ffffffff"
-                        android:layout_gravity="right"
-                        android:paddingRight="5dp"
-                        android:paddingTop="2dp"
-                        android:paddingBottom="2dp"
-                        android:paddingLeft="20dp" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textAppearance="?android:attr/textAppearanceMedium"
-                        android:text="@string/unknown"
-                        android:id="@+id/teamGoals"
-                        android:textColor="#ffffffff"
-                        android:paddingLeft="5dp"
-                        android:paddingTop="2dp"
-                        android:paddingRight="20dp"
-                        android:paddingBottom="2dp" />
-                </TableRow>
-
-                <TableRow
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:id="@+id/teamShotsRow" >
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textAppearance="?android:attr/textAppearanceMedium"
-                        android:text="@string/teamShotsString"
-                        android:id="@+id/teamShotsPrompt"
-                        android:textColor="#ffffffff"
-                        android:layout_gravity="right"
-                        android:paddingRight="5dp"
-                        android:paddingTop="2dp"
-                        android:paddingBottom="2dp"
-                        android:paddingLeft="20dp" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textAppearance="?android:attr/textAppearanceMedium"
-                        android:text="@string/unknown"
-                        android:id="@+id/teamShots"
-                        android:textColor="#ffffffff"
-                        android:paddingLeft="5dp"
-                        android:paddingTop="2dp"
-                        android:paddingRight="20dp"
-                        android:paddingBottom="2dp" />
-                </TableRow>
-
-                <TableRow
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:id="@+id/teamSavesRow" >
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textAppearance="?android:attr/textAppearanceMedium"
-                        android:text="@string/teamSavesString"
-                        android:id="@+id/teamSavesPrompt"
-                        android:textColor="#ffffffff"
-                        android:layout_gravity="right"
-                        android:paddingRight="5dp"
-                        android:paddingTop="2dp"
-                        android:paddingBottom="2dp"
-                        android:paddingLeft="20dp" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textAppearance="?android:attr/textAppearanceMedium"
-                        android:text="@string/unknown"
-                        android:id="@+id/teamSaves"
-                        android:textColor="#ffffffff"
-                        android:paddingLeft="5dp"
-                        android:paddingTop="2dp"
-                        android:paddingRight="20dp"
-                        android:paddingBottom="2dp" />
-                </TableRow>
-
-                <TableRow
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:id="@+id/teamsFoulsRow" >
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textAppearance="?android:attr/textAppearanceMedium"
-                        android:text="@string/teamFoulsString"
-                        android:id="@+id/teamFoulsPrompt"
-                        android:textColor="#ffffffff"
-                        android:layout_gravity="right"
-                        android:paddingRight="5dp"
-                        android:paddingTop="2dp"
-                        android:paddingBottom="2dp"
-                        android:paddingLeft="20dp" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textAppearance="?android:attr/textAppearanceMedium"
-                        android:text="@string/unknown"
-                        android:id="@+id/teamFouls"
-                        android:textColor="#ffffffff"
-                        android:paddingLeft="5dp"
-                        android:paddingTop="2dp"
-                        android:paddingRight="20dp"
-                        android:paddingBottom="2dp" />
-                </TableRow>
-
-                <TableRow
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:id="@+id/teamYCardsRow" >
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textAppearance="?android:attr/textAppearanceMedium"
-                        android:text="@string/teamYCardsString"
-                        android:id="@+id/teamYCardsPrompt"
-                        android:textColor="#ffffffff"
-                        android:layout_gravity="right"
-                        android:paddingRight="5dp"
-                        android:paddingTop="2dp"
-                        android:paddingBottom="2dp"
-                        android:paddingLeft="20dp" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textAppearance="?android:attr/textAppearanceMedium"
-                        android:text="@string/unknown"
-                        android:id="@+id/teamYCards"
-                        android:textColor="#ffffffff"
-                        android:paddingLeft="5dp"
-                        android:paddingTop="2dp"
-                        android:paddingRight="20dp"
-                        android:paddingBottom="2dp" />
-                </TableRow>
-
-                <TableRow
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:id="@+id/teamRCardsRow" >
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textAppearance="?android:attr/textAppearanceMedium"
-                        android:text="@string/teamRCardsString"
-                        android:id="@+id/teamRCardsPrompt"
-                        android:textColor="#ffffffff"
-                        android:layout_gravity="right"
-                        android:paddingRight="5dp"
-                        android:paddingTop="2dp"
-                        android:paddingBottom="2dp"
-                        android:paddingLeft="20dp" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textAppearance="?android:attr/textAppearanceMedium"
-                        android:text="@string/unknown"
-                        android:id="@+id/teamRCards"
-                        android:textColor="#ffffffff"
-                        android:paddingLeft="5dp"
-                        android:paddingTop="2dp"
-                        android:paddingRight="20dp"
-                        android:paddingBottom="2dp" />
-                </TableRow>
-            </TableLayout>
-
-        </FrameLayout>
-    </LinearLayout>
-
-    <Space
-        android:layout_width="match_parent"
-        android:layout_height="20dp" />
-
-    <ScrollView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/teamPlayerTableScrollView"
-        android:layout_gravity="center_horizontal">
+        android:layout_gravity="center_horizontal"
+        android:id="@+id/linearLayout"
+        android:layout_weight="1"
+        android:minHeight="120dp">
 
-        <TableLayout
+        <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/teamPlayerTableView">
+            android:text="Edit"
+            android:id="@+id/teamStatsEditButton"
+            android:layout_gravity="center_horizontal"
+            android:textSize="30dp"
+            android:minWidth="150dp" />
 
-        </TableLayout>
-    </ScrollView>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Cancel"
+            android:id="@+id/teamStatsCanceoButton"
+            android:textSize="30dp"
+            android:minWidth="150dp" />
+    </LinearLayout>
 
 </LinearLayout>

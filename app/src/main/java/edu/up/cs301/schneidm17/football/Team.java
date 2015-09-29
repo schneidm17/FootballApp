@@ -67,7 +67,7 @@ public class Team {
 
     public String getTeamName() {return teamName;}
     public Bitmap getTeamPhoto() {return teamPhoto;}
-    public String getTeamMotto() {return "\""+teamMotto+"\"";}
+    public String getTeamMotto() {return teamMotto;}
     public String getRecord() {if(wins+losses+ties==0) return null;
         else if(ties==0) return wins+"-"+losses; return wins+"-"+losses+"-"+ties;}
     public int getWins() {return wins;}

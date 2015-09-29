@@ -1,5 +1,6 @@
 package edu.up.cs301.schneidm17.football;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.Color;
@@ -8,6 +9,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TableLayout;
 import android.widget.TableRow;
@@ -19,19 +21,33 @@ import java.util.Enumeration;
 import java.util.HashMap;
 
 
-public class TeamStats extends ActionBarActivity {
+public class TeamStats extends ActionBarActivity implements View.OnClickListener{
+
+    private static final int EDIT_TEAM_STATS_REQUEST = 786;
+    private Team myTeam;
+    Button editButton;
+    Button cancelButton;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_team_stats);
-        importTeamStats(TeamSelect.teamSelected);
+        myTeam = TeamSelect.teamSelected;
+
+        importTeamStats();
+        importTeamPlayers();
     }
 
-    private void importTeamStats(Team myTeam) {
+    private void importTeamStats() {
         if (myTeam == null) {
             return;
         }
+
+        editButton = (Button) findViewById(R.id.teamStatsEditButton);
+        cancelButton = (Button) findViewById(R.id.teamStatsCanceoButton);
+        editButton.setOnClickListener(this);
+        cancelButton.setOnClickListener(this);
 
         TextView teamName = (TextView) findViewById(R.id.teamName);
         TextView teamMotto = (TextView) findViewById(R.id.teamMotto);
@@ -49,7 +65,7 @@ public class TeamStats extends ActionBarActivity {
         teamName.setText(myTeam.getTeamName());
         if (myTeam.hasMotto()) {
             teamMotto.setVisibility(View.VISIBLE);
-            teamMotto.setText(myTeam.getTeamMotto());
+            teamMotto.setText("\""+myTeam.getTeamMotto()+"\"");
         } else {
             teamMotto.setVisibility(View.GONE);
         }
@@ -70,12 +86,14 @@ public class TeamStats extends ActionBarActivity {
         try {
             Bitmap scaledTeamPhoto = Bitmap.createScaledBitmap(myTeam.getTeamPhoto(), 500, 500, true);
             teamPhoto.setImageBitmap(scaledTeamPhoto);
-        } catch (NullPointerException e){
+        } catch (NullPointerException e) {
             teamPhoto.setMinimumHeight(500);
             teamPhoto.setMinimumWidth(500);
             teamPhoto.setBackgroundColor(0x40ffffff);
         }
+    }
 
+    private void importTeamPlayers() {
         TableLayout myTable = (TableLayout)findViewById(R.id.teamPlayerTableView);
         Enumeration<Player> myPlayers = myTeam.getTeamPlayers().elements();
 
@@ -115,5 +133,24 @@ public class TeamStats extends ActionBarActivity {
     private void gotoPlayerStats(Player myPlayer) {
         PlayerSelect.playerSelected = myPlayer;
         startActivity(new Intent(TeamStats.this, PlayerStats.class));
+    }
+
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if(requestCode==EDIT_TEAM_STATS_REQUEST && resultCode== Activity.RESULT_OK){
+            importTeamStats();
+        }
+    }
+
+    @Override
+    public void onClick(View v) {
+        if(v.equals(editButton)) {
+            Intent newIntent = new Intent(TeamStats.this, TeamEdit.class);
+            newIntent.putExtra(TeamSelect.TEAM_TO_BE_EDITED, myTeam.getTeamName());
+            startActivityForResult(newIntent, EDIT_TEAM_STATS_REQUEST);
+        } else if (v.equals(cancelButton)) {
+            finish();
+        }
     }
 }

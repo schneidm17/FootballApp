@@ -7,6 +7,17 @@
     android:padding="20dp"
     tools:context="edu.up.cs301.schneidm17.football.TeamEdit">
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="@string/teamNameString"
+        android:id="@+id/teamNameNoEditField"
+        android:textColor="#ffffffff"
+        android:textSize="60dp"
+        android:layout_gravity="center_horizontal"
+        android:visibility="gone" />
+
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
