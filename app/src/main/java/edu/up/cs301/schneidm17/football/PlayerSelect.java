@@ -40,8 +40,10 @@ public class PlayerSelect extends ActionBarActivity {
             hiddenTeam = null;
         }
 
+        TextView title = (TextView) findViewById(R.id.selectPlayerHeader);
         TextView subtitle = (TextView) findViewById(R.id.selectPlayerSubtitle);
         if(addButtonsView) {
+            title.setText("Add a Player");
             subtitle.setText("Click on a player to add them to your team");
         }
 
@@ -61,7 +63,7 @@ public class PlayerSelect extends ActionBarActivity {
             }
 
             String bufferString = "          ";
-            TableRow myRow = new TableRow(this);
+            final TableRow myRow = new TableRow(this);
             myTable.addView(myRow);
             if(!addButtonsView) {
                 myRow.setOnClickListener(new View.OnClickListener() {
@@ -80,7 +82,15 @@ public class PlayerSelect extends ActionBarActivity {
                         finish();
                     }
                 });
+                myRow.setOnLongClickListener(new View.OnLongClickListener(){
+                    @Override
+                    public boolean onLongClick(View v) {
+                        myRow.setBackgroundColor(0x40ffffff);
+                        return false;
+                    }
+                });
             }
+
             TextView playerName = new TextView(this);
             playerName.setText(currentPlayer.getFirstName() + " " + currentPlayer.getLastName() + bufferString);
             playerName.setTextColor(Color.WHITE);

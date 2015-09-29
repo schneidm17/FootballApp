@@ -48,7 +48,9 @@ public class Team {
     }
 
     public boolean addPlayer(Player newPlayer) {
-        if (TeamPlayers.put(newPlayer.hash(), newPlayer)==null)
+        if (newPlayer==null || TeamPlayers.contains(newPlayer))
+            return false;
+        if(TeamPlayers.put(newPlayer.hash(), newPlayer)!=null)
             return false;
         totalGoals+=newPlayer.getGoals();
         totalShots+=newPlayer.getShots();
@@ -58,6 +60,20 @@ public class Team {
         totalRCards+=newPlayer.getrCards();
         return true;
     }
+
+    public boolean removePlayer(Player newPlayer) {
+        if (newPlayer==null || !TeamPlayers.containsKey(newPlayer.hash()))
+            return false;
+        TeamPlayers.remove(newPlayer.hash());
+        totalGoals-=newPlayer.getGoals();
+        totalShots-=newPlayer.getShots();
+        totalSaves-=newPlayer.getSaves();
+        totalFouls-=newPlayer.getFouls();
+        totalYCards-=newPlayer.getyCards();
+        totalRCards-=newPlayer.getrCards();
+        return true;
+    }
+
 
     public boolean setTeamPhoto(Bitmap b) {if (b == null) return false; teamPhoto = b; return true;}
     public boolean setRecord(int w, int l, int t) {if(w<0 || l<0 || t<0)

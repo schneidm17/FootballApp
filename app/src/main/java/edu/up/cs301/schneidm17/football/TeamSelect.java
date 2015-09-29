@@ -32,6 +32,7 @@ public class TeamSelect extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_team_select);
 
+        teamTable = (LinearLayout) findViewById(R.id.TeamViewLayout);
         createTeamTable();
         teamSelected = null;
     }
@@ -57,9 +58,7 @@ public class TeamSelect extends ActionBarActivity {
     }
 
     private void createTeamTable() {
-        teamTable = (LinearLayout) findViewById(R.id.TeamViewLayout);
         Enumeration<Team> myTeams = MainActivity.allTeams.elements();
-
         while (myTeams.hasMoreElements()) {
             addTeamToView(myTeams.nextElement());
         }

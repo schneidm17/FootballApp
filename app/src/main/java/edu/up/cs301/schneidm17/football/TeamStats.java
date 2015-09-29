@@ -98,6 +98,7 @@ public class TeamStats extends ActionBarActivity implements View.OnClickListener
         }
 
         TableLayout myTable = (TableLayout)findViewById(R.id.teamPlayerTableView);
+        myTable.removeAllViews();
         Enumeration<Player> myPlayers = myTeam.getTeamPlayers().elements();
 
         while(myPlayers.hasMoreElements())
@@ -146,6 +147,7 @@ public class TeamStats extends ActionBarActivity implements View.OnClickListener
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if(requestCode==EDIT_TEAM_STATS_REQUEST && resultCode== Activity.RESULT_OK){
             importTeamStats();
+            importTeamPlayers();
         }
     }
 
