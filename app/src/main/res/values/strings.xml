@@ -34,4 +34,5 @@
     <string name="title_activity_play_match">PlayMatch</string>
 
     <string name="hello_world">Hello world!</string>
+    <string name="title_activity_match_team_select">MatchTeamSelect</string>
 </resources>

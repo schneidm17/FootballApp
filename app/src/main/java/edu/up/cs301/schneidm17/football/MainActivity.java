@@ -67,7 +67,7 @@ public class MainActivity extends ActionBarActivity {
         startMatchButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this, PlayMatch.class));
+                startActivity(new Intent(MainActivity.this, MatchTeamSelect.class));
             }
         });
     }

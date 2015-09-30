@@ -40,6 +40,10 @@
             android:name=".PlayMatch"
             android:label="@string/title_activity_play_match" >
         </activity>
+        <activity
+            android:name=".MatchTeamSelect"
+            android:label="@string/title_activity_match_team_select" >
+        </activity>
     </application>
 
 </manifest>

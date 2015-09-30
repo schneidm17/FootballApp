@@ -1,0 +1,121 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ff008000"
+    android:padding="20dp"
+    tools:context="edu.up.cs301.schneidm17.football.MatchTeamSelect">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Match Simulator"
+        android:id="@+id/matchTeamSelectTitile"
+        android:textColor="#ffffffff"
+        android:textSize="60dp"
+        android:layout_gravity="center_horizontal" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Select two teams to play in the match"
+        android:id="@+id/matchTeamSelectSubtitle"
+        android:layout_gravity="center_horizontal"
+        android:textColor="#ffffffff"
+        android:textSize="20dp"
+        android:paddingBottom="10dp"
+        android:textStyle="italic" />
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="20px" />
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:id="@+id/selectTeamLayout">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:id="@+id/selectFirstTeamLayout">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="First Team:"
+                android:id="@+id/selectFirstTeamPrompt"
+                android:textColor="#ffffffff"
+                android:textSize="30dp"
+                android:layout_gravity="center_horizontal"
+                android:visibility="gone" />
+
+            <ScrollView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/selectFirstTeamScrollView"
+                android:layout_gravity="center_horizontal">
+
+                <TableLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/selectFirstTeamTable"></TableLayout>
+            </ScrollView>
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:id="@+id/selectSecondTeamLayout">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="Second Team:"
+                android:id="@+id/selectSecondTeamPrompt"
+                android:textColor="#ffffffff"
+                android:textSize="30dp"
+                android:layout_gravity="center_horizontal"
+                android:visibility="gone" />
+
+            <ScrollView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/selectSecondTeamScrollView"
+                android:layout_gravity="center_horizontal">
+
+                <TableLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/selectSecondTeamTable"></TableLayout>
+            </ScrollView>
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Start Match"
+            android:id="@+id/beginMatchButton"
+            android:layout_gravity="center_horizontal"
+            android:onClick="createNewTeam"
+            android:textSize="40dp" />
+    </LinearLayout>
+</LinearLayout>

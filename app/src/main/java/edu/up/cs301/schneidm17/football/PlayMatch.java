@@ -15,12 +15,6 @@ import java.util.Enumeration;
 
 public class PlayMatch extends ActionBarActivity{
 
-    private Spinner teamOneSpinner;
-    private Spinner teamTwoSpinner;
-
-    ArrayList<String> teamOneChoices;
-    ArrayList<String> teamTwoChoices;
-
     public static Team matchTeamOne = MainActivity.allTeams.get("Team One F.C.");
     public static Team matchTeamTwo = MainActivity.allTeams.get("Team Two F.C.");
 
@@ -28,24 +22,6 @@ public class PlayMatch extends ActionBarActivity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_play_match);
-
-        teamOneSpinner = (Spinner) findViewById(R.id.teamOneSpinner);
-        teamTwoSpinner = (Spinner) findViewById(R.id.teamTwoSpinner);
-        teamOneChoices = new ArrayList<>();
-        teamTwoChoices = new ArrayList<>();
-
-        Enumeration<String> league = MainActivity.allTeams.keys();
-        while (league.hasMoreElements()) {
-            String currentTeam = league.nextElement();
-            teamOneChoices.add(currentTeam);
-            teamTwoChoices.add(currentTeam);
-        }
-
-        ArrayAdapter<String> teamOneAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, teamOneChoices);
-        ArrayAdapter<String> teamTwoAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, teamTwoChoices);
-        teamOneSpinner.setAdapter(teamOneAdapter);
-        teamTwoSpinner.setAdapter(teamTwoAdapter);
-
 
     }
 
