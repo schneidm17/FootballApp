@@ -2,6 +2,7 @@ package edu.up.cs301.schneidm17.football;
 
 import android.annotation.TargetApi;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Color;
@@ -48,8 +49,8 @@ public class FootballField extends SurfaceView{
         teamTwoDefenders = new ArrayList<>();
         teamTwoGoalkeepers = new ArrayList<>();
 
-        teamOne = PlayMatch.matchTeamOne;
-        teamTwo = PlayMatch.matchTeamTwo;
+        teamOne = MatchTeamSelect.matchTeamOne;
+        teamTwo = MatchTeamSelect.matchTeamTwo;
 
         lines = new Paint();
         lines.setColor(Color.WHITE);
@@ -60,38 +61,43 @@ public class FootballField extends SurfaceView{
         pitch.setColor(0xff006000);
         pitch.setStyle(Paint.Style.FILL);
 
-        Enumeration<Player> teamOnePlayers = teamOne.getTeamPlayers().elements();
-        while(teamOnePlayers.hasMoreElements()){
-            Player currentPlayer = teamOnePlayers.nextElement();
-            switch (currentPlayer.getPositionEnum()){
-                case FORWARD:
-                    teamOneForwards.add(currentPlayer);
-                    break;
-                case MIDFIELDER:
-                    teamOneMidfielders.add(currentPlayer);
-                    break;
-                case DEFENDER:
-                    teamOneDefenders.add(currentPlayer);
-                    break;
-                case GOALKEEPER:
-                    teamOneGoalkeepers.add(currentPlayer);
+        if(teamOne != null) {
+            Enumeration<Player> teamOnePlayers = teamOne.getTeamPlayers().elements();
+            while (teamOnePlayers.hasMoreElements()) {
+                Player currentPlayer = teamOnePlayers.nextElement();
+                switch (currentPlayer.getPositionEnum()) {
+                    case FORWARD:
+                        teamOneForwards.add(currentPlayer);
+                        break;
+                    case MIDFIELDER:
+                        teamOneMidfielders.add(currentPlayer);
+                        break;
+                    case DEFENDER:
+                        teamOneDefenders.add(currentPlayer);
+                        break;
+                    case GOALKEEPER:
+                        teamOneGoalkeepers.add(currentPlayer);
+                }
             }
         }
-        Enumeration<Player> teamTwoPlayers = teamTwo.getTeamPlayers().elements();
-        while(teamTwoPlayers.hasMoreElements()){
-            Player currentPlayer = teamTwoPlayers.nextElement();
-            switch (currentPlayer.getPositionEnum()){
-                case FORWARD:
-                    teamTwoForwards.add(currentPlayer);
-                    break;
-                case MIDFIELDER:
-                    teamTwoMidfielders.add(currentPlayer);
-                    break;
-                case DEFENDER:
-                    teamTwoDefenders.add(currentPlayer);
-                    break;
-                case GOALKEEPER:
-                    teamTwoGoalkeepers.add(currentPlayer);
+
+        if(teamTwo != null) {
+            Enumeration<Player> teamTwoPlayers = teamTwo.getTeamPlayers().elements();
+            while (teamTwoPlayers.hasMoreElements()) {
+                Player currentPlayer = teamTwoPlayers.nextElement();
+                switch (currentPlayer.getPositionEnum()) {
+                    case FORWARD:
+                        teamTwoForwards.add(currentPlayer);
+                        break;
+                    case MIDFIELDER:
+                        teamTwoMidfielders.add(currentPlayer);
+                        break;
+                    case DEFENDER:
+                        teamTwoDefenders.add(currentPlayer);
+                        break;
+                    case GOALKEEPER:
+                        teamTwoGoalkeepers.add(currentPlayer);
+                }
             }
         }
     }
@@ -99,7 +105,6 @@ public class FootballField extends SurfaceView{
     private float Xpos(double x){
         return (float)(Xcent + x*scale/90.0);
     }
-
     private float Ypos(double y){
         return (float)(Ycent + y*scale/90.0);
     }
@@ -131,48 +136,51 @@ public class FootballField extends SurfaceView{
         canvas.drawArc(Xpos(88), Ypos(65.5), Xpos(92), Ypos(69.5), 180, 90, false, lines);
 
         //////Draw Team One players
-        for(int x=0; x<teamOneGoalkeepers.size(); x++) {
-            Player myPlayer = teamOneGoalkeepers.get(x);
-            Bitmap scaledPlayerPhoto = Bitmap.createScaledBitmap(myPlayer.getPlayerPhoto(), (int)(scale/6), (int)(scale/6), true);
-            canvas.drawBitmap(scaledPlayerPhoto, Xpos(-78-7.5), Ypos(-7.5 + 9*(teamOneGoalkeepers.size()-1) - 18*x), null);
-        }
-        for(int x=0; x<teamOneDefenders.size(); x++) {
-            Player myPlayer = teamOneDefenders.get(x);
-            Bitmap scaledPlayerPhoto = Bitmap.createScaledBitmap(myPlayer.getPlayerPhoto(), (int)(scale/6), (int)(scale/6), true);
-            canvas.drawBitmap(scaledPlayerPhoto, Xpos(-54-7.5), Ypos(-7.5 + 9*(teamOneDefenders.size()-1) - 18*x), null);
-        }
-        for(int x=0; x<teamOneMidfielders.size(); x++) {
-            Player myPlayer = teamOneMidfielders.get(x);
-            Bitmap scaledPlayerPhoto = Bitmap.createScaledBitmap(myPlayer.getPlayerPhoto(), (int)(scale/6), (int)(scale/6), true);
-            canvas.drawBitmap(scaledPlayerPhoto, Xpos(-36-7.5), Ypos(-7.5 + 9*(teamOneMidfielders.size()-1) - 18*x), null);
-        }
-        for(int x=0; x<teamOneForwards.size(); x++) {
-            Player myPlayer = teamOneForwards.get(x);
-            Bitmap scaledPlayerPhoto = Bitmap.createScaledBitmap(myPlayer.getPlayerPhoto(), (int)(scale/6), (int)(scale/6), true);
-            canvas.drawBitmap(scaledPlayerPhoto, Xpos(-18-7.5), Ypos(-7.5 + 9*(teamOneForwards.size()-1) - 18*x), null);
-        }
-
-        //////Draw Team Two players
-        for(int x=0; x<teamTwoForwards.size(); x++) {
-            Player myPlayer = teamTwoForwards.get(x);
-            Bitmap scaledPlayerPhoto = Bitmap.createScaledBitmap(myPlayer.getPlayerPhoto(), (int)(scale/6), (int)(scale/6), true);
-            canvas.drawBitmap(scaledPlayerPhoto, Xpos(18-7.5), Ypos(-7.5 + 9*(teamTwoForwards.size()-1) - 18*x), null);
-        }
-        for(int x=0; x<teamTwoMidfielders.size(); x++) {
-            Player myPlayer = teamTwoMidfielders.get(x);
-            Bitmap scaledPlayerPhoto = Bitmap.createScaledBitmap(myPlayer.getPlayerPhoto(), (int)(scale/6), (int)(scale/6), true);
-            canvas.drawBitmap(scaledPlayerPhoto, Xpos(36-7.5), Ypos(-7.5 + 9*(teamTwoMidfielders.size()-1) - 18*x), null);
-        }
-        for(int x=0; x<teamTwoDefenders.size(); x++) {
-            Player myPlayer = teamTwoDefenders.get(x);
-            Bitmap scaledPlayerPhoto = Bitmap.createScaledBitmap(myPlayer.getPlayerPhoto(), (int)(scale/6), (int)(scale/6), true);
-            canvas.drawBitmap(scaledPlayerPhoto, Xpos(54-7.5), Ypos(-7.5 + 9*(teamTwoDefenders.size()-1) - 18*x), null);
-        }
-        for(int x=0; x<teamTwoGoalkeepers.size(); x++) {
-            Player myPlayer = teamTwoGoalkeepers.get(x);
-            Bitmap scaledPlayerPhoto = Bitmap.createScaledBitmap(myPlayer.getPlayerPhoto(), (int)(scale/6), (int)(scale/6), true);
-            canvas.drawBitmap(scaledPlayerPhoto, Xpos(78-7.5), Ypos(-7.5 + 9*(teamTwoGoalkeepers.size()-1) - 18*x), null);
+        if(teamOne != null) {
+            for (int x = 0; x < teamOneGoalkeepers.size(); x++) {
+                Player myPlayer = teamOneGoalkeepers.get(x);
+                Bitmap scaledPlayerPhoto = Bitmap.createScaledBitmap(myPlayer.getPlayerPhoto(), (int)(scale / 6), (int)(scale / 6), true);
+                canvas.drawBitmap(scaledPlayerPhoto, Xpos(-78 - 7.5), Ypos(-7.5 + 9 * (teamOneGoalkeepers.size() - 1) - 18 * x), null);
+            }
+            for (int x = 0; x < teamOneDefenders.size(); x++) {
+                Player myPlayer = teamOneDefenders.get(x);
+                Bitmap scaledPlayerPhoto = Bitmap.createScaledBitmap(myPlayer.getPlayerPhoto(), (int)(scale / 6), (int)(scale / 6), true);
+                canvas.drawBitmap(scaledPlayerPhoto, Xpos(-54 - 7.5), Ypos(-7.5 + 9 * (teamOneDefenders.size() - 1) - 18 * x), null);
+            }
+            for (int x = 0; x < teamOneMidfielders.size(); x++) {
+                Player myPlayer = teamOneMidfielders.get(x);
+                Bitmap scaledPlayerPhoto = Bitmap.createScaledBitmap(myPlayer.getPlayerPhoto(), (int)(scale / 6), (int)(scale / 6), true);
+                canvas.drawBitmap(scaledPlayerPhoto, Xpos(-36 - 7.5), Ypos(-7.5 + 9 * (teamOneMidfielders.size() - 1) - 18 * x), null);
+            }
+            for (int x = 0; x < teamOneForwards.size(); x++) {
+                Player myPlayer = teamOneForwards.get(x);
+                Bitmap scaledPlayerPhoto = Bitmap.createScaledBitmap(myPlayer.getPlayerPhoto(), (int)(scale / 6), (int)(scale / 6), true);
+                canvas.drawBitmap(scaledPlayerPhoto, Xpos(-18 - 7.5), Ypos(-7.5 + 9 * (teamOneForwards.size() - 1) - 18 * x), null);
+            }
         }
 
+        if(teamTwo!=null) {
+            //////Draw Team Two players
+            for (int x = 0; x < teamTwoForwards.size(); x++) {
+                Player myPlayer = teamTwoForwards.get(x);
+                Bitmap scaledPlayerPhoto = Bitmap.createScaledBitmap(myPlayer.getPlayerPhoto(), (int)(scale / 6), (int)(scale / 6), true);
+                canvas.drawBitmap(scaledPlayerPhoto, Xpos(18 - 7.5), Ypos(-7.5 + 9 * (teamTwoForwards.size() - 1) - 18 * x), null);
+            }
+            for (int x = 0; x < teamTwoMidfielders.size(); x++) {
+                Player myPlayer = teamTwoMidfielders.get(x);
+                Bitmap scaledPlayerPhoto = Bitmap.createScaledBitmap(myPlayer.getPlayerPhoto(), (int)(scale / 6), (int)(scale / 6), true);
+                canvas.drawBitmap(scaledPlayerPhoto, Xpos(36 - 7.5), Ypos(-7.5 + 9 * (teamTwoMidfielders.size() - 1) - 18 * x), null);
+            }
+            for (int x = 0; x < teamTwoDefenders.size(); x++) {
+                Player myPlayer = teamTwoDefenders.get(x);
+                Bitmap scaledPlayerPhoto = Bitmap.createScaledBitmap(myPlayer.getPlayerPhoto(), (int)(scale / 6), (int)(scale / 6), true);
+                canvas.drawBitmap(scaledPlayerPhoto, Xpos(54 - 7.5), Ypos(-7.5 + 9 * (teamTwoDefenders.size() - 1) - 18 * x), null);
+            }
+            for (int x = 0; x < teamTwoGoalkeepers.size(); x++) {
+                Player myPlayer = teamTwoGoalkeepers.get(x);
+                Bitmap scaledPlayerPhoto = Bitmap.createScaledBitmap(myPlayer.getPlayerPhoto(), (int)(scale / 6), (int)(scale / 6), true);
+                canvas.drawBitmap(scaledPlayerPhoto, Xpos(78 - 7.5), Ypos(-7.5 + 9 * (teamTwoGoalkeepers.size() - 1) - 18 * x), null);
+            }
+        }
     }
 }

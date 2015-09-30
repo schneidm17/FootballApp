@@ -28,7 +28,7 @@
         <edu.up.cs301.schneidm17.football.FootballField
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:id="@+id/surfaceView"
+            android:id="@+id/footballFieldSurfaceView"
             android:background="#ff008000" />
     </FrameLayout>
 </LinearLayout>

@@ -1,5 +1,6 @@
 package edu.up.cs301.schneidm17.football;
 
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.support.v7.app.ActionBarActivity;
@@ -20,10 +21,16 @@ import java.util.Enumeration;
 
 public class MatchTeamSelect extends ActionBarActivity {
 
+    public static Team matchTeamOne;
+    public static Team matchTeamTwo;
+
+    public static final String MATCH_TEAM_1 = "MATCH_TEAM_1";
+    public static final String MATCH_TEAM_2 = "MATCH_TEAM_2";
     private int team1Selected;
     private int team2Selected;
     ArrayList<TableRow> rowsInTable1;
     ArrayList<TableRow> rowsInTable2;
+    ArrayList<Team> teamRows;
     Button startButton;
 
     @Override
@@ -31,14 +38,17 @@ public class MatchTeamSelect extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_match_team_select);
 
-        Button startButton = (Button) findViewById(R.id.beginMatchButton);
         TableLayout table1 = (TableLayout) findViewById(R.id.selectFirstTeamTable);
         TableLayout table2 = (TableLayout) findViewById(R.id.selectSecondTeamTable);
         rowsInTable1 = new ArrayList<>();
         rowsInTable2 = new ArrayList<>();
+        teamRows = new ArrayList<>();
         team1Selected = -1;
         team2Selected = -1;
         int currentRow = -1;
+        startButton = (Button) findViewById(R.id.beginMatchButton);
+        startButton.setClickable(false);
+        startButton.setTextColor(Color.GRAY);
 
         Enumeration<Team> myTeams = MainActivity.allTeams.elements();
         while (myTeams.hasMoreElements()) {
@@ -51,6 +61,7 @@ public class MatchTeamSelect extends ActionBarActivity {
             table2.addView(row2);
             rowsInTable1.add(row1);
             rowsInTable2.add(row2);
+            teamRows.add(currentTeam);
             row1.setPadding(50,20,50,20);
             row2.setPadding(50,20,50,20);
             ImageView logo1 = new ImageView(this);
@@ -114,5 +125,20 @@ public class MatchTeamSelect extends ActionBarActivity {
             newRow.setBackgroundColor(0x40ffffff);
             team2Selected = currentRow;
         }
+
+        if(team1Selected!=-1 && team2Selected!=-1)
+        {
+            startButton.setClickable(true);
+            startButton.setTextColor(Color.BLACK);
+        }
+    }
+
+    public void startMatch(View view){
+        matchTeamOne=teamRows.get(team1Selected);
+        matchTeamTwo=teamRows.get(team2Selected);
+        Intent newIntent = new Intent(MatchTeamSelect.this, PlayMatch.class);
+        newIntent.putExtra(MATCH_TEAM_1, teamRows.get(team1Selected).getTeamName());
+        newIntent.putExtra(MATCH_TEAM_2, teamRows.get(team2Selected).getTeamName());
+        startActivity(newIntent);
     }
 }

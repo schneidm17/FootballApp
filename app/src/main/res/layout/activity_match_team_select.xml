@@ -115,7 +115,7 @@
             android:text="Start Match"
             android:id="@+id/beginMatchButton"
             android:layout_gravity="center_horizontal"
-            android:onClick="createNewTeam"
-            android:textSize="40dp" />
+            android:textSize="40dp"
+            android:onClick="startMatch" />
     </LinearLayout>
 </LinearLayout>
