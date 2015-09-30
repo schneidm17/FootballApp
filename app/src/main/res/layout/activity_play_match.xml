@@ -12,13 +12,36 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Match Simulator"
-        android:id="@+id/textView7"
+        android:id="@+id/playMatchTitle"
         android:textColor="#ffffffff"
-        android:textSize="60dp"
+        android:textSize="40dp"
         android:layout_gravity="center_horizontal" />
 
-    <Space
+    <TextView
         android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="No match scheduled yet"
+        android:id="@+id/matchFinalScore"
+        android:layout_gravity="center_horizontal"
+        android:textColor="#ffffffff"
+        android:textSize="20dp"
+        android:paddingBottom="10dp"
+        android:textStyle="italic" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:id="@+id/matchWinner"
+        android:layout_gravity="center_horizontal"
+        android:textColor="#ffffffff"
+        android:textSize="30dp"
+        android:paddingBottom="10dp"
+        android:textStyle="italic" />
+
+    <Space
+        android:layout_width="match_parent"
         android:layout_height="20px" />
 
     <FrameLayout

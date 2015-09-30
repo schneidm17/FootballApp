@@ -89,6 +89,7 @@ public class Team {
     public int getWins() {return wins;}
     public int getLosses() {return losses;}
     public int getTies() {return ties;}
+    public int getNumPlyers() {return TeamPlayers.size();}
     public int getTotalGoals() {return totalGoals;}
     public int getTotalShots() {return totalShots;}
     public int getTotalSaves() {return totalSaves;}

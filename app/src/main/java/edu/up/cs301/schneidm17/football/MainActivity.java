@@ -94,7 +94,7 @@ public class MainActivity extends ActionBarActivity {
         addToHashtable(new Player("Daniel", "Bentley", team2, 5, Player.position.MIDFIELDER, 24, 1, 7, 6, 1, 0, 0, 0));
         addToHashtable(new Player("Jenson", "Taylor", team3, 5, Player.position.MIDFIELDER, 19, 2, 8, 4, 0, 2, 1, 0));
         addToHashtable(new Player("Leo", "Wall", team4, 5, Player.position.MIDFIELDER, 27, 2, 6, 7, 1, 0, 0, 0));
-        addToHashtable(new Player("Dawid", "Hughes", team1, 6, Player.position.MIDFIELDER, 22, 0, 2, 8, 1, 3, 1, 0));
+        addToHashtable(new Player("Nigel", "Hughes", team1, 6, Player.position.MIDFIELDER, 22, 0, 2, 8, 1, 3, 1, 0));
         addToHashtable(new Player("Xavier", "Davey", team2, 6, Player.position.MIDFIELDER, 20, 1, 5, 4, 0, 0, 0, 0));
         addToHashtable(new Player("Christopher", "Carter", team3, 6, Player.position.MIDFIELDER, 27, 0, 7, 2, 1, 1, 0, 0));
         addToHashtable(new Player("Lochlan", "Clark", team4, 6, Player.position.MIDFIELDER, 21, 1, 2, 2, 2, 0, 0, 0));

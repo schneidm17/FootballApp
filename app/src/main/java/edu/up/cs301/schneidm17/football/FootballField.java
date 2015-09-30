@@ -26,6 +26,7 @@ public class FootballField extends SurfaceView{
     private Team teamTwo;
     private Paint lines;
     private Paint pitch;
+    private Paint text;
 
     private ArrayList<Player> teamOneForwards;
     private ArrayList<Player> teamOneMidfielders;
@@ -57,8 +58,12 @@ public class FootballField extends SurfaceView{
         lines.setStyle(Paint.Style.STROKE);
         lines.setStrokeWidth(4);
 
+        text = new Paint();
+        text.setColor(Color.LTGRAY);
+        text.setStyle(Paint.Style.FILL);
+
         pitch = new Paint();
-        pitch.setColor(0xff006000);
+        pitch.setColor(0xff007800);
         pitch.setStyle(Paint.Style.FILL);
 
         if(teamOne != null) {
@@ -118,7 +123,7 @@ public class FootballField extends SurfaceView{
         Xcent = canvas.getWidth() / 2;
         Ycent = canvas.getHeight() / 2;
 
-        canvas.drawRect(Xpos(-90) - 10, Ypos(-67.5) - 10, Xpos(90) + 10, Ypos(67.5) + 10, pitch);
+        canvas.drawRect(Xpos(-90), Ypos(-67.5), Xpos(90), Ypos(67.5), pitch);
         canvas.drawRect(Xpos(-90), Ypos(-67.5), Xpos(0), Ypos(67.5), lines);
         canvas.drawRect(Xpos(0), Ypos(-67.5), Xpos(90), Ypos(67.5), lines);
         canvas.drawRect(Xpos(-90), Ypos(-45), Xpos(-54), Ypos(45), lines);
@@ -141,21 +146,25 @@ public class FootballField extends SurfaceView{
                 Player myPlayer = teamOneGoalkeepers.get(x);
                 Bitmap scaledPlayerPhoto = Bitmap.createScaledBitmap(myPlayer.getPlayerPhoto(), (int)(scale / 6), (int)(scale / 6), true);
                 canvas.drawBitmap(scaledPlayerPhoto, Xpos(-78 - 7.5), Ypos(-7.5 + 9 * (teamOneGoalkeepers.size() - 1) - 18 * x), null);
+                canvas.drawText(myPlayer.getFirstName()+" "+myPlayer.getLastName(), Xpos(-78 - 7.5), Ypos(9 + 9 * (teamOneGoalkeepers.size()-1)-18*x), text);
             }
             for (int x = 0; x < teamOneDefenders.size(); x++) {
                 Player myPlayer = teamOneDefenders.get(x);
                 Bitmap scaledPlayerPhoto = Bitmap.createScaledBitmap(myPlayer.getPlayerPhoto(), (int)(scale / 6), (int)(scale / 6), true);
                 canvas.drawBitmap(scaledPlayerPhoto, Xpos(-54 - 7.5), Ypos(-7.5 + 9 * (teamOneDefenders.size() - 1) - 18 * x), null);
+                canvas.drawText(myPlayer.getFirstName() + " " + myPlayer.getLastName(), Xpos(-54 - 7.5), Ypos(9 + 9 * (teamOneDefenders.size() - 1) - 18 * x), text);
             }
             for (int x = 0; x < teamOneMidfielders.size(); x++) {
                 Player myPlayer = teamOneMidfielders.get(x);
                 Bitmap scaledPlayerPhoto = Bitmap.createScaledBitmap(myPlayer.getPlayerPhoto(), (int)(scale / 6), (int)(scale / 6), true);
                 canvas.drawBitmap(scaledPlayerPhoto, Xpos(-36 - 7.5), Ypos(-7.5 + 9 * (teamOneMidfielders.size() - 1) - 18 * x), null);
+                canvas.drawText(myPlayer.getFirstName() + " " + myPlayer.getLastName(), Xpos(-36 - 7.5), Ypos(9 + 9 * (teamOneMidfielders.size() - 1) - 18 * x), text);
             }
             for (int x = 0; x < teamOneForwards.size(); x++) {
                 Player myPlayer = teamOneForwards.get(x);
                 Bitmap scaledPlayerPhoto = Bitmap.createScaledBitmap(myPlayer.getPlayerPhoto(), (int)(scale / 6), (int)(scale / 6), true);
                 canvas.drawBitmap(scaledPlayerPhoto, Xpos(-18 - 7.5), Ypos(-7.5 + 9 * (teamOneForwards.size() - 1) - 18 * x), null);
+                canvas.drawText(myPlayer.getFirstName() + " " + myPlayer.getLastName(), Xpos(-18 - 7.5), Ypos(9 + 9 * (teamOneForwards.size() - 1) - 18 * x), text);
             }
         }
 
@@ -165,21 +174,25 @@ public class FootballField extends SurfaceView{
                 Player myPlayer = teamTwoForwards.get(x);
                 Bitmap scaledPlayerPhoto = Bitmap.createScaledBitmap(myPlayer.getPlayerPhoto(), (int)(scale / 6), (int)(scale / 6), true);
                 canvas.drawBitmap(scaledPlayerPhoto, Xpos(18 - 7.5), Ypos(-7.5 + 9 * (teamTwoForwards.size() - 1) - 18 * x), null);
+                canvas.drawText(myPlayer.getFirstName()+" "+myPlayer.getLastName(), Xpos(18 - 7.5), Ypos(9 + 9 * (teamTwoForwards.size()-1)-18*x), text);
             }
             for (int x = 0; x < teamTwoMidfielders.size(); x++) {
                 Player myPlayer = teamTwoMidfielders.get(x);
                 Bitmap scaledPlayerPhoto = Bitmap.createScaledBitmap(myPlayer.getPlayerPhoto(), (int)(scale / 6), (int)(scale / 6), true);
                 canvas.drawBitmap(scaledPlayerPhoto, Xpos(36 - 7.5), Ypos(-7.5 + 9 * (teamTwoMidfielders.size() - 1) - 18 * x), null);
+                canvas.drawText(myPlayer.getFirstName() + " " + myPlayer.getLastName(), Xpos(36 - 7.5), Ypos(9 + 9 * (teamTwoMidfielders.size() - 1) - 18 * x), text);
             }
             for (int x = 0; x < teamTwoDefenders.size(); x++) {
                 Player myPlayer = teamTwoDefenders.get(x);
                 Bitmap scaledPlayerPhoto = Bitmap.createScaledBitmap(myPlayer.getPlayerPhoto(), (int)(scale / 6), (int)(scale / 6), true);
                 canvas.drawBitmap(scaledPlayerPhoto, Xpos(54 - 7.5), Ypos(-7.5 + 9 * (teamTwoDefenders.size() - 1) - 18 * x), null);
+                canvas.drawText(myPlayer.getFirstName() + " " + myPlayer.getLastName(), Xpos(54 - 7.5), Ypos(9 + 9 * (teamTwoDefenders.size() - 1) - 18 * x), text);
             }
             for (int x = 0; x < teamTwoGoalkeepers.size(); x++) {
                 Player myPlayer = teamTwoGoalkeepers.get(x);
                 Bitmap scaledPlayerPhoto = Bitmap.createScaledBitmap(myPlayer.getPlayerPhoto(), (int)(scale / 6), (int)(scale / 6), true);
                 canvas.drawBitmap(scaledPlayerPhoto, Xpos(78 - 7.5), Ypos(-7.5 + 9 * (teamTwoGoalkeepers.size() - 1) - 18 * x), null);
+                canvas.drawText(myPlayer.getFirstName() + " " + myPlayer.getLastName(), Xpos(78 - 7.5), Ypos(9 + 9 * (teamTwoGoalkeepers.size() - 1) - 18 * x), text);
             }
         }
     }
